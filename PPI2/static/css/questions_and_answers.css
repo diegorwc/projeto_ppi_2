@@ -1,0 +1,16 @@
+.mdl-grid div {
+  /* border: solid; */
+  text-align: center;
+}
+
+.mdl-layout-title {
+  background-color: rgb(139, 195, 74);
+}
+
+.mdl-card__title-text {
+  font-size: 1em;
+}
+
+.mdl-card__media {
+  padding: 10px;
+}
