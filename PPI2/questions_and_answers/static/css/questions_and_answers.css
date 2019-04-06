@@ -113,4 +113,45 @@ div.mdl-layout__header-row > button:nth-child(3) {
     background-color: rgb(92, 184, 92)
   }
 
+  .mdl-mini-footer {
+    margin-top: 15%;
+    background-color: #8bc34a;
+    color: black;
+  }
+
+  button > img {
+    width: 36px;
+    height: 36px;
+  }
+
+  .mdl-mini-footer__social-btn {
+    background-color: #8bc34a;
+  }
+
+  .mdl-mini-footer__social-btn:hover {
+    cursor: pointer;
+  }
+
+  .mdl-logo > img {
+    width: 100px;
+    height: 128px;
+  }
+
+  .mdl-mini-footer__middle-section {
+    text-align: center;
+    width: 33%;
+    font-family: "Roboto","Helvetica","Arial",sans-serif;
+    letter-spacing: .02em;
+    font-size: 1.1em;
+  }
+
+  .mdl-mini-footer__left-section {
+    text-align: center;
+    width: 33%;
+  }
+
+  .mdl-mini-footer__right-section {
+    text-align: center;
+    width: 33%;
+  }
 }
