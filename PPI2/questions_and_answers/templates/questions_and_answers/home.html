@@ -66,7 +66,7 @@
           </div>
         </div>
       </div> -->
-      <div class="mdl-cell">
+      <!-- <div class="mdl-cell">
         <div class="question-card mdl-card mdl-shadow--4dp">
           <div class="mdl-card__title">
             <p class="mdl-card__title-text">Anônimo</p>
@@ -85,10 +85,23 @@
             Another question
           </p>
         </div>
+      </div> -->
+      <!-- <div class="mdl-cell mdl-cell--8-col"> -->
+      <!-- </div> -->
+      {% for user_question in users_questions %}
+      <div class="mdl-cell">
+        <div class="question-card mdl-card mdl-shadow--4dp">
+          <div class="mdl-card__title">
+            <p class="mdl-card__title-text">{{ user_question.title }} - {{ user_question.author }}</p>
+          </div>
+          <p class="mdl-card__subtitle-text">
+            {{ user_question.text }}
+          </p>
+        </div>
       </div>
-      <div class="mdl-cell mdl-cell--8-col">
-      </div>
+      {% endfor %}
     </div>
+
     <div id="new_question_modal" class="new_question_modal">
       <div class="modal_content">
         <div class="modal_header">
