@@ -5,4 +5,7 @@ env
 db.sqlite3
 PPI2/static
 .DS_Store
-PPI2/questions_and_answers/static
+PPI2/questions_and_answers/static/images
+PPI2/questions_and_answers/migrations
+PPI2/static/images
+PPI2/admin
