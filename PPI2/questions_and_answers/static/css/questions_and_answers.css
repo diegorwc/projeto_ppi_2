@@ -113,10 +113,12 @@ div.mdl-layout__header-row > button:nth-child(3) {
     background-color: rgb(92, 184, 92)
   }
 
-  .mdl-mini-footer {
-    margin-top: 15%;
+  .mdl-mini-footer {    
     background-color: #8bc34a;
     color: black;
+    position: absolute;
+    width: 100%;
+    bottom: 5px;
   }
 
   button > img {
