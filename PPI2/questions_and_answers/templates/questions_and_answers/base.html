@@ -57,16 +57,18 @@
         <div class="modal_header">
           <h2 class="mdl-dialog__title">Nova pergunta</h2>
         </div>
-        <form action="#">
+        <!-- <form action="/perguntas" method="POST">
+          {% csrf_token %}
           <br />
           <br />
           <div class="mdl-textfield mdl-js-textfield">
-            <input type="text" id="question_title" class="mdl-textfield__input">
+            <input type="text" id="question_title" class="mdl-textfield__input"
+            name="question_title" required>
             <label class="mdl-textfield__label" for="question_title">Título</label>
           </div>
           <div class="mdl-textfield mdl-js-textfield">
             <textarea id="question_text" class="mdl-textfield__input" type="text"
-            rows="3"></textarea>
+            rows="3" name="question_text" required></textarea>
             <label class="mdl-textfield__label" for="question_text">
               Faça sua pergunta!
             </label>
@@ -75,8 +77,22 @@
           mdl-js-ripple-effect mdl-button--accent" id="modal_enviar">
             Enviar
           </button>
+        </form> -->
+        <form action="index.html" method="post">
+          {% csrf_token %}
+          <div class="mdl-textfield mdl-js-textfield">
+            <label class="mdl-textfield__label" for="{{form.title.name }}">
+              Título
+            </label>
+            {{ form.title }}
+          </div>
+          <div class="mdl-textfield mdl-js-textfield">
+            <label class="mdl-textfield__label" for="{{form.text.name}}">
+              Faça sua pergunta
+            </label>
+            {{ form.text }}
+          </div>
         </form>
-
         </div>
       </div>
     </div>
