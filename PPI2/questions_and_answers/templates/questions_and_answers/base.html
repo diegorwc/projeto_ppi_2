@@ -48,9 +48,6 @@
     <br />
     <br />
 
-    {% block question_cards %}
-    {% endblock %}
-
     <!--  New Question modal form -->
     <div id="new_question_modal" class="new_question_modal">
       <div class="modal_content">
@@ -78,7 +75,7 @@
             Enviar
           </button>
         </form> -->
-        <form action="index.html" method="post">
+        <form method="post" action="/">
           {% csrf_token %}
           <div class="mdl-textfield mdl-js-textfield">
             <label class="mdl-textfield__label" for="{{form.title.name }}">
@@ -92,6 +89,11 @@
             </label>
             {{ form.text }}
           </div>
+          <button class="mdl-button mdl-js-button mdl-button--raised
+          mdl-js-ripple-effect mdl-button--accent" id="modal_enviar"
+          type="submit">
+            Enviar
+          </button>
         </form>
         </div>
       </div>
@@ -117,6 +119,14 @@
     }
 
   </script>
+
+  <div class="mdl-grid">
+    {% block question_cards %}
+    {% endblock %}
+  </div>
+
+  <br />
+  
   <footer class="mdl-mini-footer">
     <div class="mdl-mini-footer__left-section">
       <div class="mdl-logo">
