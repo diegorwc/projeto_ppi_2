@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'questions_and_answers',
+    'timetable',
 ]
 
 MIDDLEWARE = [
