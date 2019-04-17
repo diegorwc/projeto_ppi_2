@@ -6,7 +6,7 @@ class UserQuestion(models.Model):
     author = models.ForeignKey('auth.User', on_delete=models.CASCADE)
     title = models.CharField(max_length=200)
     text = models.TextField()
-    created_date = models.DateTimeField()
+    created_date = models.DateTimeField(null=True)
 
     def create_question(self):
         self.created_date = timezone.now()

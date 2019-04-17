@@ -78,13 +78,13 @@
         <form method="post" action="/">
           {% csrf_token %}
           <div class="mdl-textfield mdl-js-textfield">
-            <label class="mdl-textfield__label" for="{{form.title.name }}">
+            <label class="mdl-textfield__label" for="{{ form.title.name }}">
               Título
             </label>
             {{ form.title }}
           </div>
           <div class="mdl-textfield mdl-js-textfield">
-            <label class="mdl-textfield__label" for="{{form.text.name}}">
+            <label class="mdl-textfield__label" for="{{ form.text.name }}">
               Faça sua pergunta
             </label>
             {{ form.text }}
@@ -126,7 +126,7 @@
   </div>
 
   <br />
-  
+
   <footer class="mdl-mini-footer">
     <div class="mdl-mini-footer__left-section">
       <div class="mdl-logo">

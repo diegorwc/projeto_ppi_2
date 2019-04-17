@@ -11,6 +11,10 @@ class Course(models.Model):
 class Subject(models.Model):
     name = models.CharField(max_length=100)
     workload = models.IntegerField()
+    classroom = models.CharField(max_length=50)
+    current_module = models.IntegerField()
+    start_time = models.TimeField()
+    end_time = models.TimeField()
     fk_teacher = models.ForeignKey('Teacher', on_delete=models.SET_NULL,
     null=True)
     fk_course = models.ForeignKey('Course', on_delete=models.SET_NULL,
@@ -18,7 +22,3 @@ class Subject(models.Model):
 
 class Teacher(models.Model):
     teacher = models.CharField(max_length=50)
-
-class CourseClass(models.Model):
-    current_module = models.IntegerField()
-    classroom = models.CharField(max_length=50)
