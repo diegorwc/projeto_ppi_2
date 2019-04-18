@@ -2,23 +2,23 @@ from django.db import models
 
 #https://docs.djangoproject.com/en/2.2/ref/models/fields/#model-field-types
 
-class Course(models.Model):
-    name = models.CharField(max_length=100)
-    modules_amount = models.IntegerField()
-    coordinator = models.ForeignKey('Teacher', on_delete=models.SET_NULL,
+class Curso(models.Model):
+    nome = models.CharField(max_length=100)
+    quantidade_de_modulos = models.IntegerField()
+    coordenador = models.ForeignKey('Professor', on_delete=models.SET_NULL,
     null=True)
 
-class Subject(models.Model):
-    name = models.CharField(max_length=100)
-    workload = models.IntegerField()
-    classroom = models.CharField(max_length=50)
-    current_module = models.IntegerField()
-    start_time = models.TimeField()
-    end_time = models.TimeField()
-    fk_teacher = models.ForeignKey('Teacher', on_delete=models.SET_NULL,
+class UnidadeCurricular(models.Model):
+    nome = models.CharField(max_length=100)
+    carga_horaria = models.IntegerField()
+    sala = models.CharField(max_length=50)
+    modulo_atual = models.IntegerField()
+    horario_de_inicio = models.TimeField()
+    horario_de_termino = models.TimeField()
+    fk_professor = models.ForeignKey('Professor', on_delete=models.SET_NULL,
     null=True)
-    fk_course = models.ForeignKey('Course', on_delete=models.SET_NULL,
+    fk_curso = models.ForeignKey('Curso', on_delete=models.SET_NULL,
     null=True)
 
-class Teacher(models.Model):
-    teacher = models.CharField(max_length=50)
+class Professor(models.Model):
+    Professor = models.CharField(max_length=50)
