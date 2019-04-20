@@ -11,40 +11,36 @@
 {% endblock %}
 
 {% block tabs_cursos %}
-  <div class="mdl-layout__tab-bar mdl-js-ripple-effect">
-    <a href="#scroll-tab-agronomia" class="mdl-layout__tab is-active">
-      Agronomia
-    </a>
-    <a href="#scroll-tab-ads" class="mdl-layout__tab">
-      ADS
-    </a>
-  </div>
+    <div class="mdl-layout__tab-bar mdl-js-ripple-effect">
+      {% for curso in lista_cursos %}
+        <a href="#scroll-tab-{{ curso.nome }}" class="mdl-layout__tab">
+          {{ curso.nome }}
+        </a>
+      {% endfor %}
+    </div>
 {% endblock %}
 
 {% block conteudo %}
-  <section class="mdl-layout__tab-panel is-active" id="scroll-tab-agronomia">
-    <div class="page-content">
-      <div class="mdl-card mdl-shadow--2dp">
-        <div class="mdl-card__title">
-          <h2 class="mdl-card__title-text">
-            Bacharelado em Agronomia
-          </h2>
-        </div>
-        <div class="mdl-card__supporting-text curso-info-card">
-          <p class="mdl-card__subtitle-text">Coordenador: Jefferson Schick</p>
-          <p class="mdl-card__subtitle-text">Carga horária: 4120 horas/aula</p>
-          <p class="mdl-card__subtitle-text">Turno: Integral*</p>
-          <p class="mdl-card__subtitle-text">Duração: 10 semestres</p>
+  {% for curso in lista_cursos %}
+    <section class="mdl-layout__tab-panel is-active" id="scroll-tab-agronomia">
+      <div class="page-content">
+        <div class="mdl-card mdl-shadow--2dp">
+          <div class="mdl-card__title">
+            <h2 class="mdl-card__title-text">
+              Bacharelado em Agronomia
+              {{ curso.nome }}
+            </h2>
+          </div>
+          <div class="mdl-card__supporting-text curso-info-card">
+            <p class="mdl-card__subtitle-text">Coordenador: Jefferson Schick</p>
+            <p class="mdl-card__subtitle-text">Carga horária: 4120 horas/aula</p>
+            <p class="mdl-card__subtitle-text">Turno: Integral*</p>
+            <p class="mdl-card__subtitle-text">Duração: 10 semestres</p>
+          </div>
         </div>
       </div>
-    </div>
-  </section>
-  <section class="mdl-layout__tab-panel" id="scroll-tab-ads">
-    <div class="page-content">
-      <p>Coordenador: Luciano Barreto</p>
-
-    </div>
-  </section>
+    </section>
+  {% endfor %}
 {% endblock %}
 
 {% block form %}
@@ -78,7 +74,7 @@
       <div class="mdl-textfield mdl-js-textfield">
         <label class="mdl-textfield__label" for="{{ form.turno.name }}">
         </label>
-        {{ form.turno }}         
+        {{ form.turno }}
       </div>
       <button class="mdl-button mdl-js-button mdl-button--raised
       mdl-js-ripple-effect mdl-button--accent" id="modal_enviar"
