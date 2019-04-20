@@ -4,10 +4,10 @@ from django.db import models
 
 class Curso(models.Model):
 
-    MATUTINO = 'mat'
-    VESPERTINO = 'ves'
-    NOTURNO = 'not'
-    INTEGRAL = 'int'
+    MATUTINO = 'Matutino'
+    VESPERTINO = 'Vespertino'
+    NOTURNO = 'Noturno'
+    INTEGRAL = 'Integral'
     OPCOES_TURNO = (
         (MATUTINO, 'Matutino'),
         (VESPERTINO, 'Vespertino'),
@@ -22,7 +22,7 @@ class Curso(models.Model):
     # )
     coordenador = models.CharField(max_length = 100, null=True)
     turno = models.CharField(
-        max_length = 3, choices=OPCOES_TURNO, default='Matutino',
+        max_length = 10, choices=OPCOES_TURNO, default='Matutino',
     )
 
     def __str__(self):

@@ -11,7 +11,7 @@
 {% endblock %}
 
 {% block tabs_cursos %}
-    <div class="mdl-layout__tab-bar mdl-js-ripple-effect">
+    <div class="mdl-layout__tab-bar mdl-js-ripple-effect">      
       {% for curso in lista_cursos %}
         <a href="#scroll-tab-{{ curso.nome }}" class="mdl-layout__tab">
           {{ curso.nome }}
@@ -22,20 +22,28 @@
 
 {% block conteudo %}
   {% for curso in lista_cursos %}
-    <section class="mdl-layout__tab-panel is-active" id="scroll-tab-agronomia">
+    {% if forloop.counter == 1 %}
+      <section class="mdl-layout__tab-panel is-active"
+      id="scroll-tab-{{ curso.nome }}">
+    {% endif %}
+    {% if forloop.counter != 1 %}
+      <section class="mdl-layout__tab-panel"
+      id="scroll-tab-{{ curso.nome }}">
+    {% endif %}
       <div class="page-content">
         <div class="mdl-card mdl-shadow--2dp">
           <div class="mdl-card__title">
             <h2 class="mdl-card__title-text">
-              Bacharelado em Agronomia
               {{ curso.nome }}
             </h2>
           </div>
           <div class="mdl-card__supporting-text curso-info-card">
-            <p class="mdl-card__subtitle-text">Coordenador: Jefferson Schick</p>
-            <p class="mdl-card__subtitle-text">Carga horária: 4120 horas/aula</p>
-            <p class="mdl-card__subtitle-text">Turno: Integral*</p>
-            <p class="mdl-card__subtitle-text">Duração: 10 semestres</p>
+            <p class="mdl-card__subtitle-text">Coordenador: {{ curso.coordenador }}</p>
+            <!-- <p class="mdl-card__subtitle-text">Carga horária: 4120 horas/aula</p> -->
+            <p class="mdl-card__subtitle-text">Turno: {{ curso.turno }}</p>
+            <p class="mdl-card__subtitle-text">
+              Duração: {{ curso.quantidade_de_modulos }} semestres
+            </p>
           </div>
         </div>
       </div>

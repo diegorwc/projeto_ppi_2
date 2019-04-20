@@ -79,3 +79,12 @@ button > img {
   border: 1px solid #888;
   width: 80%;
 }
+
+.mdl-layout__tab-bar {
+  margin: auto;
+}
+
+.mdl-card {
+  margin: auto;
+  margin-top: 2em;
+}
