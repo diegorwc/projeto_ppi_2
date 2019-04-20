@@ -11,9 +11,14 @@
 {% endblock %}
 
 {% block tabs_cursos %}
-    <div class="mdl-layout__tab-bar mdl-js-ripple-effect">      
+    <div class="mdl-layout__tab-bar mdl-js-ripple-effect">
       {% for curso in lista_cursos %}
+      {% if forloop.counter == 1 %}
+        <a href="#scroll-tab-{{ curso.nome }}" class="mdl-layout__tab is-active">
+      {% endif %}
+      {% if forloop.counter != 1 %}
         <a href="#scroll-tab-{{ curso.nome }}" class="mdl-layout__tab">
+      {% endif %}
           {{ curso.nome }}
         </a>
       {% endfor %}
