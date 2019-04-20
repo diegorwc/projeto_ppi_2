@@ -13,5 +13,5 @@ class FormCurso(forms.ModelForm):
             'coordenador': TextInput(attrs={'class': 'mdl-textfield__input'}),
             'quantidade_de_modulos':  TextInput(attrs={'class': 'mdl-textfield__input',
             'pattern': '-?[0-9]*(\.[0-9]+)?'}),
-            'turno': Select(attrs={}),
+            'turno': Select(attrs={'class': 'mdl-textfield__input'}),
         }

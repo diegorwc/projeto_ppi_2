@@ -1,6 +1,11 @@
 {% extends 'timetable/home.html' %}
 {% load static %}
 
+{% block head %}
+  <link rel="stylesheet" href="{% static 'css/getmdl-select.min.css' %}">
+  <script defer src="{% static 'javascript/getmdl-select.min.js' %}"></script>
+{% endblock %}
+
 {% block header %}
   <span class="mdl-layout__title">Cursos</span>
   <div class="mdl-layout-spacer"></div>
@@ -84,10 +89,10 @@
         </label>
         {{ form.quantidade_de_modulos }}
       </div>
-      <div class="mdl-textfield mdl-js-textfield">
+      <div class="mdl-textfield mdl-js-textfield getmdl-select">
         <label class="mdl-textfield__label" for="{{ form.turno.name }}">
         </label>
-        {{ form.turno }}
+        {{ form.turno }}      
       </div>
       <button class="mdl-button mdl-js-button mdl-button--raised
       mdl-js-ripple-effect mdl-button--accent" id="modal_enviar"
