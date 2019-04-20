@@ -3,10 +3,30 @@ from django.db import models
 #https://docs.djangoproject.com/en/2.2/ref/models/fields/#model-field-types
 
 class Curso(models.Model):
+
+    MATUTINO = 'mat'
+    VESPERTINO = 'ves'
+    NOTURNO = 'not'
+    INTEGRAL = 'int'
+    OPCOES_TURNO = (
+        (MATUTINO, 'Matutino'),
+        (VESPERTINO, 'Vespertino'),
+        (NOTURNO, 'Noturno'),
+        (INTEGRAL, 'Integral'),
+    )
+
     nome = models.CharField(max_length=100)
     quantidade_de_modulos = models.IntegerField()
-    coordenador = models.ForeignKey('Professor', on_delete=models.SET_NULL,
-    null=True)
+    # coordenador = models.ForeignKey(
+    #     'Professor', on_delete=models.SET_NULL, null=True
+    # )
+    coordenador = models.CharField(max_length = 100, null=True)
+    turno = models.CharField(
+        max_length = 3, choices=OPCOES_TURNO, default='Matutino',
+    )
+
+    def __str__(self):
+        return self.nome
 
 class UnidadeCurricular(models.Model):
     nome = models.CharField(max_length=100)

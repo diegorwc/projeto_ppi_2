@@ -1,0 +1,96 @@
+{% extends 'timetable/home.html' %}
+{% load static %}
+
+{% block header %}
+  <span class="mdl-layout__title">Cursos</span>
+  <div class="mdl-layout-spacer"></div>
+  <button id="novo_curso_button" class="mdl-button mdl-js-button
+  mdl-js-ripple-effect mdl-button--raised">
+    <i class="material-icons">add</i>
+  </button>
+{% endblock %}
+
+{% block tabs_cursos %}
+  <div class="mdl-layout__tab-bar mdl-js-ripple-effect">
+    <a href="#scroll-tab-agronomia" class="mdl-layout__tab is-active">
+      Agronomia
+    </a>
+    <a href="#scroll-tab-ads" class="mdl-layout__tab">
+      ADS
+    </a>
+  </div>
+{% endblock %}
+
+{% block conteudo %}
+  <section class="mdl-layout__tab-panel is-active" id="scroll-tab-agronomia">
+    <div class="page-content">
+      <div class="mdl-card mdl-shadow--2dp">
+        <div class="mdl-card__title">
+          <h2 class="mdl-card__title-text">
+            Bacharelado em Agronomia
+          </h2>
+        </div>
+        <div class="mdl-card__supporting-text curso-info-card">
+          <p class="mdl-card__subtitle-text">Coordenador: Jefferson Schick</p>
+          <p class="mdl-card__subtitle-text">Carga horária: 4120 horas/aula</p>
+          <p class="mdl-card__subtitle-text">Turno: Integral*</p>
+          <p class="mdl-card__subtitle-text">Duração: 10 semestres</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="mdl-layout__tab-panel" id="scroll-tab-ads">
+    <div class="page-content">
+      <p>Coordenador: Luciano Barreto</p>
+
+    </div>
+  </section>
+{% endblock %}
+
+{% block form %}
+<!--  Novo curso modal form -->
+<div id="novo_curso_modal" class="novo_curso_modal">
+  <div class="modal_content">
+    <div class="modal_header">
+      <h2 class="mdl-dialog__title">Cadastrar novo curso</h2>
+    </div>
+    <form method="post">
+      {% csrf_token %}
+      <div class="mdl-textfield mdl-js-textfield">
+        <label class="mdl-textfield__label" for="{{ form.nome.name }}">
+          Nome
+        </label>
+        {{ form.nome }}
+      </div>
+      <div class="mdl-textfield mdl-js-textfield">
+        <label class="mdl-textfield__label" for="{{ form.coordenador.name }}">
+          Coordenador
+        </label>
+        {{ form.coordenador }}
+      </div>
+      <div class="mdl-textfield mdl-js-textfield">
+        <label class="mdl-textfield__label"
+        for="{{ form.quantidade_de_modulos.name }}">
+          Quantidade de módulos
+        </label>
+        {{ form.quantidade_de_modulos }}
+      </div>
+      <div class="mdl-textfield mdl-js-textfield">
+        <label class="mdl-textfield__label" for="{{ form.turno.name }}">
+        </label>
+        {{ form.turno }}         
+      </div>
+      <button class="mdl-button mdl-js-button mdl-button--raised
+      mdl-js-ripple-effect mdl-button--accent" id="modal_enviar"
+      type="submit">
+        Enviar
+      </button>
+    </form>
+    </div>
+  </div>
+{% endblock %}
+
+{% block script %}
+  <script type="text/javascript" src="{% static 'javascript/novo_curso.js' %}">
+  </script>
+{% endblock %}

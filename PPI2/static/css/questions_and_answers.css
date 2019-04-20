@@ -24,6 +24,10 @@
   width: 100%;
 }
 
+.mdl-card {
+  z-index: 0;
+}
+
 .mdl-layout-title {
   font-size: 1.1em;
 }
@@ -68,6 +72,11 @@ div.mdl-layout__header-row > button:nth-child(3) {
     font-size: 1.5em;
   }
 
+  #new_question_modal > div > form > div {
+    display: block;
+    margin: auto;
+  }
+
   .new_question_modal {
     display: none;
     position: fixed;
@@ -83,9 +92,76 @@ div.mdl-layout__header-row > button:nth-child(3) {
 
   .modal_content {
     background-color: #FEFEFE;
-    margin: 15% auto;
+    margin: 5% auto;
     padding: 20px;
     border: 1px solid #888;
     width: 80%;
+  }
+
+  form > div.mdl-textfield {
+    width: 800px;
+  }
+
+  .modal_header {
+    padding: 2px 16px;
+    background-color: #5cb85c;
+    color: white;
+  }
+
+  div.modal_header h2.mdl-dialog__title {
+    padding: 10px 10px;
+  }
+
+  #modal_enviar {
+    margin: 1% 0 0 80%;
+    background-color: rgb(92, 184, 92)
+  }
+
+  .mdl-mini-footer {
+    background-color: #8bc34a;
+    color: black;
+    position: relative;
+    width: 100%;
+    bottom: 0;
+  }
+
+  .mdl-grid {
+    margin-bottom: 20px;
+  }
+
+  button > img {
+    width: 36px;
+    height: 36px;
+  }
+
+  .mdl-mini-footer__social-btn {
+    background-color: #8bc34a;
+  }
+
+  .mdl-mini-footer__social-btn:hover {
+    cursor: pointer;
+  }
+
+  .mdl-logo > img {
+    width: 100px;
+    height: 128px;
+  }
+
+  .mdl-mini-footer__middle-section {
+    text-align: center;
+    width: 33%;
+    font-family: "Roboto","Helvetica","Arial",sans-serif;
+    letter-spacing: .02em;
+    font-size: 1.1em;
+  }
+
+  .mdl-mini-footer__left-section {
+    text-align: center;
+    width: 33%;
+  }
+
+  .mdl-mini-footer__right-section {
+    text-align: center;
+    width: 33%;
   }
 }
