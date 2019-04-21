@@ -1,4 +1,4 @@
-{% extends 'timetable/home.html' %}
+{% extends 'timetable/base.html' %}
 {% load static %}
 
 {% block head %}
@@ -80,6 +80,7 @@
         <label class="mdl-textfield__label" for="{{ form.coordenador.name }}">
           Coordenador
         </label>
+        <br />
         {{ form.coordenador }}
       </div>
       <div class="mdl-textfield mdl-js-textfield">
@@ -92,7 +93,7 @@
       <div class="mdl-textfield mdl-js-textfield getmdl-select">
         <label class="mdl-textfield__label" for="{{ form.turno.name }}">
         </label>
-        {{ form.turno }}      
+        {{ form.turno }}
       </div>
       <button class="mdl-button mdl-js-button mdl-button--raised
       mdl-js-ripple-effect mdl-button--accent" id="modal_enviar"
