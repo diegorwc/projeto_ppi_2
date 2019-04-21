@@ -54,12 +54,13 @@ button > img {
   width: 512px;
 }
 
-#novo_curso_modal > div > form > div {
+#novo_curso_modal > div > form > div,
+#nova_unidade_curricular_modal > div > form > div {
   display: block;
   margin: auto;
 }
 
-.novo_curso_modal {
+.novo_curso_modal, .nova_unidade_curricular_modal {
   display: none;
   position: fixed;
   z-index: 3;

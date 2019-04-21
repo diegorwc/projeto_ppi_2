@@ -40,12 +40,12 @@ class UnidadeCurricular(models.Model):
     nome = models.CharField(max_length=100)
     carga_horaria = models.IntegerField()
     sala = models.CharField(max_length=50)
-    modulo_atual = models.IntegerField()
+    modulo = models.IntegerField()
     horario_de_inicio = models.TimeField()
     horario_de_termino = models.TimeField()
-    fk_professor = models.ForeignKey('Professor', on_delete=models.SET_NULL,
+    professor = models.ForeignKey('Professor', on_delete=models.SET_NULL,
     null=True)
-    fk_curso = models.ForeignKey('Curso', on_delete=models.SET_NULL,
+    curso = models.ForeignKey('Curso', on_delete=models.SET_NULL,
     null=True)
 
     def __str__(self):

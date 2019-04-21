@@ -1,0 +1,86 @@
+{% extends 'timetable/base.html' %}
+{% load static %}
+
+{% block header %}
+  <span class="mdl-layout__title">Unidades Curriculares</span>
+  <div class="mdl-layout-spacer"></div>
+  <button id="nova_unidade_curricular_button" class="mdl-button mdl-js-button
+  mdl-js-ripple-effect mdl-button--raised">
+    <i class="material-icons">add</i>
+  </button>
+{% endblock %}
+
+{% block form %}
+<!--  Novo curso modal form -->
+<div id="nova_unidade_curricular_modal" class="nova_unidade_curricular_modal">
+  <div class="modal_content">
+    <div class="modal_header">
+      <h2 class="mdl-dialog__title">Cadastrar nova unidade curricular</h2>
+    </div>
+    <form method="post">
+      {% csrf_token %}
+      <div class="mdl-textfield mdl-js-textfield">
+        <label class="mdl-textfield__label" for="{{ form.nome.name }}">
+          Nome
+        </label>
+        {{ form.nome }}
+      </div>
+      <div class="mdl-textfield mdl-js-textfield">
+        <label class="mdl-textfield__label" for="{{ form.professor.name }}">
+          Professor
+        </label>
+        <br />
+        {{ form.professor }}
+      </div>
+      <div class="mdl-textfield mdl-js-textfield">
+        <label class="mdl-textfield__label"
+        for="{{ form.carga_horaria.name }}">
+          Carga horária
+        </label>
+        {{ form.carga_horaria }}
+      </div>
+      <div class="mdl-textfield mdl-js-textfield">
+        <label class="mdl-textfield__label" for="{{ form.sala.name }}">
+          Sala
+        </label>
+        {{ form.sala }}
+      </div>
+      <div class="mdl-textfield mdl-js-textfield">
+        <label class="mdl-textfield__label" for="{{ form.curso.name }}">
+          Curso
+        </label>
+        <br />
+        {{ form.curso }}
+      </div>
+      <div class="mdl-textfield mdl-js-textfield">
+        <label class="mdl-textfield__label" for="{{ form.modulo.name }}">
+          Módulo
+        </label>
+        {{ form.modulo }}
+      </div>
+      <div class="mdl-textfield mdl-js-textfield">
+        <label class="mdl-textfield__label" for="{{ form.horario_de_inicio.name }}">
+          Horário de início
+        </label>
+        {{ form.horario_de_inicio }}
+      </div>
+      <div class="mdl-textfield mdl-js-textfield">
+        <label class="mdl-textfield__label" for="{{ form.horario_de_termino.name }}">
+          Horário de término
+        </label>
+        {{ form.horario_de_termino }}
+      </div>
+      <button class="mdl-button mdl-js-button mdl-button--raised
+      mdl-js-ripple-effect mdl-button--accent" id="modal_enviar"
+      type="submit">
+        Enviar
+      </button>
+    </form>
+    </div>
+  </div>
+{% endblock %}
+
+{% block script %}
+  <script type="text/javascript"
+  src="{% static 'javascript/nova_unidade_curricular.js' %}"></script>
+{% endblock %}
