@@ -10,6 +10,29 @@
   </button>
 {% endblock %}
 
+{% block conteudo %}
+  <table class="mdl-data-table mdl-js-data-table">
+    <thead>
+      <tr>
+        <th class="mdl-data-table__cell--non-numeric">Unidade Curricular</th>
+        <th class="mdl-data-table__cell--non-numeric">Carga horária</th>
+        <th class="mdl-data-table__cell--non-numeric">Curso</th>
+        <th class="mdl-data-table__cell--non-numeric">Professor</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for unidade_curricular in lista_unidades_curriculares %}
+      <tr>
+        <td class="mdl-data-table__cell--non-numeric">{{ unidade_curricular.nome }}</td>
+        <td class="mdl-data-table__cell--non-numeric">{{ unidade_curricular.carga_horaria }}</td>
+        <td class="mdl-data-table__cell--non-numeric">{{ unidade_curricular.curso }}</td>
+        <td class="mdl-data-table__cell--non-numeric">{{ unidade_curricular.professor }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% endblock %}
+
 {% block form %}
 <!--  Novo curso modal form -->
 <div id="nova_unidade_curricular_modal" class="nova_unidade_curricular_modal">
@@ -62,12 +85,14 @@
         <label class="mdl-textfield__label" for="{{ form.horario_de_inicio.name }}">
           Horário de início
         </label>
+        <br />
         {{ form.horario_de_inicio }}
       </div>
       <div class="mdl-textfield mdl-js-textfield">
         <label class="mdl-textfield__label" for="{{ form.horario_de_termino.name }}">
           Horário de término
         </label>
+        <br />
         {{ form.horario_de_termino }}
       </div>
       <button class="mdl-button mdl-js-button mdl-button--raised

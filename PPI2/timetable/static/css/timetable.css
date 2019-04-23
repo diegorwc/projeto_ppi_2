@@ -89,3 +89,9 @@ button > img {
   margin: auto;
   margin-top: 2em;
 }
+
+.mdl-data-table {
+  margin: auto;
+  margin-top: 5em;
+  width: 70%;
+}

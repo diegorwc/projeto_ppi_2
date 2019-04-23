@@ -30,8 +30,10 @@ class FormUnidadeCurricular(forms.ModelForm):
             'carga_horaria': TextInput(attrs={'class': 'mdl-textfield__input'}),
             'sala': TextInput(attrs={'class': 'mdl-textfield__input'}),
             'modulo': TextInput(attrs={'class': 'mdl-textfield__input'}),
-            'horario_de_inicio': TimeInput(),
-            'horario_de_termino': TimeInput(),
+            'horario_de_inicio': TimeInput(attrs={'class': 'mdl-textfield__input',
+            'type': 'time'}),
+            'horario_de_termino': TimeInput(attrs={'class': 'mdl-textfield__input',
+            'type': 'time'}),
             'professor': Select(attrs={'class': 'mdl-textfield__input'}),
             'curso': Select(attrs={'class': 'mdl-textfield__input'}),
         }

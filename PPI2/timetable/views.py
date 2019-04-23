@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from .forms import FormCurso, FormUnidadeCurricular
-from .models import Curso, Professor
+from .models import Curso, Professor, UnidadeCurricular
 from django.http import HttpResponseRedirect
 
 # Create your views here.
@@ -24,6 +24,7 @@ def cursos(request):
     )
 
 def unidades_curriculares(request):
+    lista_unidades_curriculares = UnidadeCurricular.objects.all()
     if request.method == 'POST':
         form = FormUnidadeCurricular(request.POST)
         if form.is_valid():
@@ -34,5 +35,6 @@ def unidades_curriculares(request):
     else:
         form = FormUnidadeCurricular()
     return render(
-        request, 'timetable/unidades_curriculares.html', {'form': form}
+        request, 'timetable/unidades_curriculares.html', {'form': form,
+        'lista_unidades_curriculares': lista_unidades_curriculares}
     )
