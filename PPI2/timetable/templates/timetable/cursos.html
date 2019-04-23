@@ -19,10 +19,10 @@
     <div class="mdl-layout__tab-bar mdl-js-ripple-effect">
       {% for curso in lista_cursos %}
       {% if forloop.counter == 1 %}
-        <a href="#scroll-tab-{{ curso.nome }}" class="mdl-layout__tab is-active">
+        <a href="#scroll-tab-{{ forloop.counter }}" class="mdl-layout__tab is-active">
       {% endif %}
       {% if forloop.counter != 1 %}
-        <a href="#scroll-tab-{{ curso.nome }}" class="mdl-layout__tab">
+        <a href="#scroll-tab-{{ forloop.counter }}" class="mdl-layout__tab">
       {% endif %}
           {{ curso.nome }}
         </a>
@@ -34,11 +34,11 @@
   {% for curso in lista_cursos %}
     {% if forloop.counter == 1 %}
       <section class="mdl-layout__tab-panel is-active"
-      id="scroll-tab-{{ curso.nome }}">
+      id="scroll-tab-{{ forloop.counter }}">
     {% endif %}
     {% if forloop.counter != 1 %}
       <section class="mdl-layout__tab-panel"
-      id="scroll-tab-{{ curso.nome }}">
+      id="scroll-tab-{{ forloop.counter }}">
     {% endif %}
       <div class="page-content">
         <div class="mdl-card mdl-shadow--2dp">
