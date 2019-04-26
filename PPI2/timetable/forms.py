@@ -1,5 +1,6 @@
 from django import forms
-from django.forms import ModelForm, Textarea, TextInput, NumberInput, Select, TimeInput
+from django.forms import ModelForm, Textarea, TextInput, NumberInput, Select, \
+TimeInput, CheckboxInput, SelectMultiple
 from .models import Curso, UnidadeCurricular
 class FormCurso(forms.ModelForm):
 
@@ -22,7 +23,7 @@ class FormUnidadeCurricular(forms.ModelForm):
 
         fields = (
             'nome', 'carga_horaria', 'sala', 'modulo', 'horario_de_inicio',
-            'horario_de_termino', 'professor', 'curso'
+            'horario_de_termino', 'professor', 'curso', 'dias_das_aulas',
         )
 
         widgets = {
@@ -34,6 +35,9 @@ class FormUnidadeCurricular(forms.ModelForm):
             'type': 'time'}),
             'horario_de_termino': TimeInput(attrs={'class': 'mdl-textfield__input',
             'type': 'time'}),
+            'dias_das_aulas': Select(
+                attrs={'class': 'mdl-textfield__input'}
+            ),
             'professor': Select(attrs={'class': 'mdl-textfield__input'}),
             'curso': Select(attrs={'class': 'mdl-textfield__input'}),
         }

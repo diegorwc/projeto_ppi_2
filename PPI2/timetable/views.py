@@ -2,6 +2,9 @@ from django.shortcuts import render, redirect
 from .forms import FormCurso, FormUnidadeCurricular
 from .models import Curso, Professor, UnidadeCurricular
 from django.http import HttpResponseRedirect
+import pdb, logging
+
+logger = logging.getLogger(__name__)
 
 # Create your views here.
 def home(request):
@@ -31,9 +34,11 @@ def unidades_curriculares(request):
             form.save()
             return redirect('unidades_curriculares')
         else:
-            return redirect('FORM_NOT_VALID')
+             pdb.set_trace()
+            # return redirect('FORM_NOT_VALID')
     else:
         form = FormUnidadeCurricular()
+        # pdb.set_trace()        
     return render(
         request, 'timetable/unidades_curriculares.html', {'form': form,
         'lista_unidades_curriculares': lista_unidades_curriculares}

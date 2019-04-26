@@ -76,6 +76,17 @@
         {{ form.curso }}
       </div>
       <div class="mdl-textfield mdl-js-textfield">
+        <label class="mdl-textfield__label" for="{{ form.dias_das_aulas.name }}">
+          Dias das aulas
+        </label>
+        <br />
+        <select class="mdl-textfield__input" name="dias_das_aulas">
+          {% for key, choice in form.dias_das_aulas.field.choices %}
+            <option value="{{ key }}">{{ choice }}</option>
+          {% endfor %}
+        </select>
+      </div>
+      <div class="mdl-textfield mdl-js-textfield">
         <label class="mdl-textfield__label" for="{{ form.modulo.name }}">
           Módulo
         </label>

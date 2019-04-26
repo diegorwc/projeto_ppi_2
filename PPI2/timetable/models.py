@@ -37,7 +37,25 @@ class Curso(models.Model):
         return self.nome
 
 class UnidadeCurricular(models.Model):
-    nome = models.CharField(max_length=100)
+    SEGUNDA_FEIRA = '2'
+    TERCA_FEIRA = '3'
+    QUARTA_FEIRA = '4'
+    QUINTA_FEIRA = '5'
+    SEXTA_FEIRA = '6'
+
+    DIAS_DA_SEMANA = (
+        (SEGUNDA_FEIRA, 'Segunda-feira'),
+        (TERCA_FEIRA, 'Terça-feira'),
+        (QUARTA_FEIRA, 'Quarta-feira'),
+        (QUINTA_FEIRA, 'Quinta-feira'),
+        (SEXTA_FEIRA, 'Sexta-feira'),
+    )
+    dias_das_aulas = models.CharField(
+        max_length = 3,
+        choices = DIAS_DA_SEMANA,
+        default = 'Segunda-feira',
+    )
+    nome = models.CharField(max_length = 100)
     carga_horaria = models.IntegerField()
     sala = models.CharField(max_length=50)
     modulo = models.IntegerField()
