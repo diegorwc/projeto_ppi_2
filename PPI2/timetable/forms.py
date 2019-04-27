@@ -35,9 +35,9 @@ class FormUnidadeCurricular(forms.ModelForm):
             'type': 'time'}),
             'horario_de_termino': TimeInput(attrs={'class': 'mdl-textfield__input',
             'type': 'time'}),
-            'dias_das_aulas': Select(
-                attrs={'class': 'mdl-textfield__input'}
-            ),
+            # 'dias_das_aulas': Select(
+            #     attrs={'class': 'mdl-textfield__input'}
+            # ),
             'professor': Select(attrs={'class': 'mdl-textfield__input'}),
             'curso': Select(attrs={'class': 'mdl-textfield__input'}),
         }

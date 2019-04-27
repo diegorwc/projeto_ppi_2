@@ -31,14 +31,17 @@ def unidades_curriculares(request):
     if request.method == 'POST':
         form = FormUnidadeCurricular(request.POST)
         if form.is_valid():
-            form.save()
+            nova_uc = form.save(commit=False)
+            nova_uc.dias_das_aulas = request.POST.getlist('dias_das_aulas')
+            nova_uc.save()
+            pdb.set_trace()
             return redirect('unidades_curriculares')
         else:
              pdb.set_trace()
             # return redirect('FORM_NOT_VALID')
     else:
         form = FormUnidadeCurricular()
-        # pdb.set_trace()        
+        # pdb.set_trace()
     return render(
         request, 'timetable/unidades_curriculares.html', {'form': form,
         'lista_unidades_curriculares': lista_unidades_curriculares}

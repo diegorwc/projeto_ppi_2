@@ -51,7 +51,7 @@ class UnidadeCurricular(models.Model):
         (SEXTA_FEIRA, 'Sexta-feira'),
     )
     dias_das_aulas = models.CharField(
-        max_length = 3,
+        max_length = 25,
         choices = DIAS_DA_SEMANA,
         default = 'Segunda-feira',
     )

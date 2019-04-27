@@ -93,5 +93,11 @@ button > img {
 .mdl-data-table {
   margin: auto;
   margin-top: 5em;
+  margin-bottom: 5em;
   width: 70%;
+}
+
+.mdl-layout__container {
+  position: relative;
+  height: 44em;
 }
