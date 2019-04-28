@@ -9,13 +9,13 @@
 .mdl-mini-footer {
   background-color: #8bc34a;
   color: black;
-  position: absolute;
+  position: relative;
   width: 100%;
-  bottom: 0;
 }
 
 .mdl-mini-footer__social-btn {
   background-color: #8bc34a;
+  margin: auto;
 }
 
 .mdl-mini-footer__social-btn:hover {
@@ -45,7 +45,7 @@
   width: 33%;
 }
 
-button > img {
+div > img {
   width: 36px;
   height: 36px;
 }
@@ -97,7 +97,20 @@ button > img {
   width: 70%;
 }
 
+.mdl-layout__content {
+  position: relative;
+  min-height: 26em;
+  overflow: visible;
+}
+
 .mdl-layout__container {
   position: relative;
-  height: 44em;
+}
+
+.mdl-data-table th {
+  vertical-align: middle;
+}
+
+.page-content > h6 {
+  margin-left: 2em;
 }

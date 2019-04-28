@@ -68,3 +68,6 @@ class UnidadeCurricular(models.Model):
 
     def __str__(self):
         return self.nome
+
+    def horarioInicioToString(self):
+        return str(self.horario_de_inicio)

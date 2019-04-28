@@ -2,8 +2,8 @@
 {% load static %}
 
 {% block head %}
-  <link rel="stylesheet" href="{% static 'css/getmdl-select.min.css' %}">
-  <script defer src="{% static 'javascript/getmdl-select.min.js' %}"></script>
+  <!-- <link rel="stylesheet" href="{% static 'css/getmdl-select.min.css' %}"> -->
+  <!-- <script defer src="{% static 'javascript/getmdl-select.min.js' %}"></script> -->
 {% endblock %}
 
 {% block header %}
@@ -40,22 +40,184 @@
       <section class="mdl-layout__tab-panel"
       id="scroll-tab-{{ forloop.counter }}">
     {% endif %}
-      <div class="page-content">
-        <div class="mdl-card mdl-shadow--2dp">
-          <div class="mdl-card__title">
-            <h2 class="mdl-card__title-text">
-              {{ curso.nome }}
-            </h2>
-          </div>
-          <div class="mdl-card__supporting-text curso-info-card">
-            <p class="mdl-card__subtitle-text">Coordenador: {{ curso.coordenador }}</p>
-            <!-- <p class="mdl-card__subtitle-text">Carga horária: 4120 horas/aula</p> -->
-            <p class="mdl-card__subtitle-text">Turno: {{ curso.turno }}</p>
-            <p class="mdl-card__subtitle-text">
-              Duração: {{ curso.quantidade_de_modulos }} semestres
-            </p>
-          </div>
-        </div>
+      <div class="page-content">        
+        <h6 class="mdl-layout__title">Coordenador: {{ curso.coordenador }}</h6>
+          <table class="mdl-data-table mdl-js-data-table">
+            <thead>
+              <tr>
+                <th class="mdl-data-table__cell--non-numeric">
+                  Horário
+                </th>
+                <th class="mdl-data-table__cell--non-numeric">
+                  Segunda-feira
+                </th>
+                <th class="mdl-data-table__cell--non-numeric">
+                  Terça-feira
+                </th>
+                <th class="mdl-data-table__cell--non-numeric">
+                  Quarta-feira
+                </th>
+                <th class="mdl-data-table__cell--non-numeric">
+                  Quinta-feira
+                </th>
+                <th class="mdl-data-table__cell--non-numeric">
+                  Sexta-feira
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              {% if curso.turno == 'Matutino' or curso.turno == 'Integral' %}
+              <tr>
+                <th class="mdl-data-table__cell--non-numeric">
+                  07:45 - 09:35
+                </th>
+                {% for num in range %}
+                  <td class="mdl-data-table__cell--non-numeric">
+                    {% for key, value in uc_por_curso.items %}
+                      {% for uc in value %}
+                        {% if curso.nome == key %}
+                          {% for dia in uc.dias_das_aulas %}
+                            {% if dia == num %}
+                              {% if uc.horarioInicioToString == '07:45:00' %}
+                                {{ uc.nome }}
+                                <hr />
+                                Prof. {{ uc.professor }}
+                              {% endif %}
+                            {% endif %}
+                          {% endfor %}
+                        {% endif %}
+                      {% endfor %}
+                    {% endfor %}
+                  </td>
+                {% endfor %}
+              </tr>
+              <tr>
+                <th class="mdl-data-table__cell--non-numeric">
+                  09:55 - 11:45
+                </th>
+                {% for num in range %}
+                  <td class="mdl-data-table__cell--non-numeric">
+                    {% for key, value in uc_por_curso.items %}
+                      {% for uc in value %}
+                        {% if curso.nome == key %}
+                          {% for dia in uc.dias_das_aulas %}
+                            {% if dia == num %}
+                              {% if uc.horarioInicioToString == '09:55:00' %}
+                                {{ uc.nome }}
+                                <hr />
+                                Prof. {{ uc.professor }}
+                              {% endif %}
+                            {% endif %}
+                          {% endfor %}
+                        {% endif %}
+                      {% endfor %}
+                    {% endfor %}
+                  </td>
+                {% endfor %}
+              </tr>
+              {% endif %}
+              {% if curso.turno == 'Noturno' %}
+              <tr>
+                <th class="mdl-data-table__cell--non-numeric">
+                  18:30 - 20:20
+                </th>
+                {% for num in range %}
+                  <td class="mdl-data-table__cell--non-numeric">
+                    {% for key, value in uc_por_curso.items %}
+                      {% for uc in value %}
+                        {% if curso.nome == key %}
+                          {% for dia in uc.dias_das_aulas %}
+                            {% if dia == num %}
+                              {% if uc.horarioInicioToString == '18:30:00' %}
+                                {{ uc.nome }}
+                                <hr />
+                                Prof. {{ uc.professor }}
+                              {% endif %}
+                            {% endif %}
+                          {% endfor %}
+                        {% endif %}
+                      {% endfor %}
+                    {% endfor %}
+                  </td>
+                  {% endfor %}
+              </tr>
+              <tr>
+                <th class="mdl-data-table__cell--non-numeric">
+                  20:40 - 22:30
+                </th>
+                {% for num in range %}
+                  <td class="mdl-data-table__cell--non-numeric">
+                    {% for key, value in uc_por_curso.items %}
+                      {% for uc in value %}
+                        {% if curso.nome == key %}
+                          {% for dia in uc.dias_das_aulas %}
+                            {% if dia == num %}
+                              {% if uc.horarioInicioToString == '20:20:00' %}
+                                {{ uc.nome }}
+                                <hr />
+                                Prof. {{ uc.professor }}
+                              {% endif %}
+                            {% endif %}
+                          {% endfor %}
+                        {% endif %}
+                      {% endfor %}
+                    {% endfor %}
+                  </td>
+                {% endfor %}
+              </tr>
+              {% endif %}
+              {% if curso.turno == 'Vespertino'  or curso.turno == 'Integral' %}
+              <tr>
+                <th class="mdl-data-table__cell--non-numeric">
+                  13:15 - 15:05
+                </th>
+                {% for num in range %}
+                  <td class="mdl-data-table__cell--non-numeric">
+                    {% for key, value in uc_por_curso.items %}
+                      {% for uc in value %}
+                        {% if curso.nome == key %}
+                          {% for dia in uc.dias_das_aulas %}
+                            {% if dia == num %}
+                              {% if uc.horarioInicioToString == '13:15:00' %}
+                                {{ uc.nome }}
+                                <hr />
+                                Prof. {{ uc.professor }}
+                              {% endif %}
+                            {% endif %}
+                          {% endfor %}
+                        {% endif %}
+                      {% endfor %}
+                    {% endfor %}
+                  </td>
+                {% endfor %}
+              </tr>
+              <tr>
+                <th class="mdl-data-table__cell--non-numeric">
+                  15:25 - 17:15
+                </th>
+                {% for num in range %}
+                  <td class="mdl-data-table__cell--non-numeric">
+                    {% for key, value in uc_por_curso.items %}
+                      {% for uc in value %}
+                        {% if curso.nome == key %}
+                          {% for dia in uc.dias_das_aulas %}
+                            {% if dia == num %}
+                              {% if uc.horarioInicioToString == '15:25:00' %}
+                                {{ uc.nome }}
+                                <hr />
+                                Prof. {{ uc.professor }}
+                              {% endif %}
+                            {% endif %}
+                          {% endfor %}
+                        {% endif %}
+                      {% endfor %}
+                    {% endfor %}
+                  </td>
+                {% endfor %}
+              </tr>
+              {% endif %}
+            </tbody>
+          </table>
       </div>
     </section>
   {% endfor %}
@@ -71,13 +233,13 @@
     <form method="post">
       {% csrf_token %}
       <div class="mdl-textfield mdl-js-textfield">
-        <label class="mdl-textfield__label" for="{{ form.nome.name }}">
+        <label class="mdl-textfield__label" for="id_{{ form.nome.name }}">
           Nome
         </label>
         {{ form.nome }}
       </div>
       <div class="mdl-textfield mdl-js-textfield">
-        <label class="mdl-textfield__label" for="{{ form.coordenador.name }}">
+        <label class="mdl-textfield__label" for="id_{{ form.coordenador.name }}">
           Coordenador
         </label>
         <br />
@@ -85,13 +247,13 @@
       </div>
       <div class="mdl-textfield mdl-js-textfield">
         <label class="mdl-textfield__label"
-        for="{{ form.quantidade_de_modulos.name }}">
+        for="id_{{ form.quantidade_de_modulos.name }}">
           Quantidade de módulos
         </label>
         {{ form.quantidade_de_modulos }}
       </div>
       <div class="mdl-textfield mdl-js-textfield getmdl-select">
-        <label class="mdl-textfield__label" for="{{ form.turno.name }}">
+        <label class="mdl-textfield__label" for="id_{{ form.turno.name }}">
         </label>
         {{ form.turno }}
       </div>
@@ -106,6 +268,6 @@
 {% endblock %}
 
 {% block script %}
-  <script type="text/javascript" src="{% static 'javascript/novo_curso.js' %}">
+  <script src="{% static 'javascript/novo_curso.js' %}">
   </script>
 {% endblock %}
