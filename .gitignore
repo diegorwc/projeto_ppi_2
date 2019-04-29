@@ -5,4 +5,3 @@ env
 db.sqlite3
 PPI2/static
 .DS_Store
-PPI2/questions_and_answers/static
