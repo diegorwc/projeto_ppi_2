@@ -3,7 +3,7 @@
 }
 
 .mdl-grid {
-  min-height: 55vh; 
+  min-height: 55vh;
 }
 
 .mdl-layout-title {
@@ -124,7 +124,7 @@ div.mdl-layout__header-row > button:nth-child(3) {
     background-color: #8bc34a;
     color: black;
     position: relative;
-    width: 100%;
+    /* width: 100%; */
     bottom: 0;
   }
 
