@@ -31,3 +31,6 @@ def questions_list(request):
         form = UserQuestionForm()
     return render(request, 'questions_and_answers/questions_cards.html',
     {'form': form, 'users_questions': users_questions})
+
+def teste(request):
+    return render(request, 'questions_and_answers/base.html', {})

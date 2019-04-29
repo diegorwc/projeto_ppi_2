@@ -99,7 +99,7 @@ div > img {
 
 .mdl-layout__content {
   position: relative;
-  min-height: 26em;
+  min-height: 60vh;
   overflow: visible;
 }
 

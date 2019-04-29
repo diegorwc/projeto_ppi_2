@@ -1,6 +1,9 @@
 .mdl-grid div {
-  /* border: solid; */
   text-align: center;
+}
+
+.mdl-grid {
+  min-height: 55vh; 
 }
 
 .mdl-layout-title {

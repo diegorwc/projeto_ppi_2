@@ -42,12 +42,40 @@
           </div>
         </nav>
       </div>
+
+
     </div>
     <br />
     <br />
     <br />
     <br />
+    <div class="mdl-grid">
+      {% block question_cards %}
+      {% endblock %}
+    </div>
 
+    <footer class="mdl-mini-footer">
+      <div class="mdl-mini-footer__left-section">
+        <div class="mdl-logo">
+          <img src="{% static "images/canoinhas_vertical_marca.png" %}" alt="">
+        </div>
+      </div>
+      <div class="mdl-mini-footer__middle-section">
+        Instituto Federal de Santa Catarina<br />Campus Canoinhas
+        <br />Av. Expedicionários, 2150 - Bairro Campo da Água Verde<br />
+        CEP 89466-312
+      </div>
+      <div class="mdl-mini-footer__right-section">
+        <a class="mdl-navigation__link"
+        href="https://www.youtube.com/user/ifsccomunicacao" target="_blank">
+          <div class="mdl-mini-footer__social-btn">
+            <img src="{% static "images/youtube_social_squircle_red.png" %}"
+            alt="Youtube logo. Link para IFSC TV">
+          </div>
+        </a>
+      </div>
+    </footer>
+    
     <!--  New Question modal form -->
     <div id="new_question_modal" class="new_question_modal">
       <div class="modal_content">
@@ -77,55 +105,10 @@
         </div>
       </div>
       <script src="{% static 'javascript/nova_pergunta.js' %}"></script>
-      <div class="mdl-grid">
-        {% block question_cards %}
-        {% endblock %}
-      </div>
+
 
       <br />
 
-      <footer class="mdl-mini-footer">
-        <div class="mdl-mini-footer__left-section">
-          <div class="mdl-logo">
-            <img src="{% static "images/canoinhas_vertical_marca.png" %}" alt="">
-          </div>
-        </div>
-        <div class="mdl-mini-footer__middle-section">
-          Instituto Federal de Santa Catarina<br />Campus Canoinhas
-          <br />Av. Expedicionários, 2150 - Bairro Campo da Água Verde<br />
-          CEP 89466-312
-        </div>
-        <div class="mdl-mini-footer__right-section">
-          <a class="mdl-navigation__link"
-          href="https://www.youtube.com/user/ifsccomunicacao" target="_blank">
-            <div class="mdl-mini-footer__social-btn">
-              <img src="{% static "images/youtube_social_squircle_red.png" %}"
-              alt="Youtube logo. Link para IFSC TV">
-            </div>
-          </a>
-        </div>
-      </footer>
+
   </body>
-  <!-- <script>
-    let modal = document.getElementById("new_question_modal");
-    let nqbtn = document.getElementById("new_question_button");
-    let close_button = document.getElementsByClassName("close")[0];
-
-    nqbtn.onclick = function() {
-      modal.style.display = "block";
-    }
-
-    // close_button.onclick = function () {
-    //   modal.style.display = "none";
-    // }
-
-    window.onclick = function(event) {
-      if (event.target == modal) {
-        modal.style.display = "none";
-      }
-    }
-
-  </script> -->
-
-
 </html>
