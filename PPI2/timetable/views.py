@@ -2,12 +2,14 @@ from django.shortcuts import render, redirect
 from .forms import FormCurso, FormUnidadeCurricular
 from .models import Curso, Professor, UnidadeCurricular
 from django.http import HttpResponseRedirect
+from django.contrib.auth.decorators import login_required
 import pdb
 
 # Create your views here.
 def home(request):
     return render(request, 'timetable/home.html')
 
+@login_required
 def cursos(request):
     lista_cursos = Curso.objects.all()
     uc_por_curso = {}
@@ -35,6 +37,7 @@ def cursos(request):
         'range': string_dias}
     )
 
+@login_required
 def unidades_curriculares(request):
     lista_unidades_curriculares = UnidadeCurricular.objects.all()
 

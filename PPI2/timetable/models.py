@@ -20,9 +20,7 @@ class Curso(models.Model):
         (NOTURNO, 'Noturno'),
         (INTEGRAL, 'Integral'),
     )
-
-    # PROFESSORES = Professor.objects.all()
-
+    
     nome = models.CharField(max_length=100)
     quantidade_de_modulos = models.IntegerField()
     coordenador = models.ForeignKey(

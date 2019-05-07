@@ -42,25 +42,26 @@
     {% endif %}
       <div class="page-content">
         <h6 class="mdl-layout__title">Coordenador: {{ curso.coordenador }}</h6>
-          <table class="mdl-data-table mdl-js-data-table">
+        <div class="table-wrapper">
+          <table class="mdl-data-table mdl-js-data-table mdl-shadow--4dp">
             <thead>
               <tr>
-                <th class="mdl-data-table__cell--non-numeric">
+                <th class="mdl-data-table__cell--non-numeric mdl-shadow--4dp">
                   Horário
                 </th>
-                <th class="mdl-data-table__cell--non-numeric">
+                <th class="mdl-data-table__cell--non-numeric mdl-shadow--4dp">
                   Segunda-feira
                 </th>
-                <th class="mdl-data-table__cell--non-numeric">
+                <th class="mdl-data-table__cell--non-numeric mdl-shadow--4dp">
                   Terça-feira
                 </th>
-                <th class="mdl-data-table__cell--non-numeric">
+                <th class="mdl-data-table__cell--non-numeric mdl-shadow--4dp">
                   Quarta-feira
                 </th>
-                <th class="mdl-data-table__cell--non-numeric">
+                <th class="mdl-data-table__cell--non-numeric mdl-shadow--4dp">
                   Quinta-feira
                 </th>
-                <th class="mdl-data-table__cell--non-numeric">
+                <th class="mdl-data-table__cell--non-numeric mdl-shadow--4dp">
                   Sexta-feira
                 </th>
               </tr>
@@ -68,11 +69,11 @@
             <tbody>
               {% if curso.turno == 'Matutino' or curso.turno == 'Integral' %}
               <tr>
-                <th class="mdl-data-table__cell--non-numeric">
+                <th class="mdl-data-table__cell--non-numeric mdl-shadow--4dp">
                   07:45 - 09:35
                 </th>
                 {% for num in range %}
-                  <td class="mdl-data-table__cell--non-numeric">
+                  <td class="mdl-data-table__cell--non-numeric mdl-shadow--4dp">
                     {% for key, value in uc_por_curso.items %}
                       {% for uc in value %}
                         {% if curso.nome == key %}
@@ -82,6 +83,8 @@
                                 {{ uc.nome }}
                                 <hr />
                                 Prof. {{ uc.professor }}
+                                <hr />
+                                Sala {{ uc.sala }}
                               {% endif %}
                             {% endif %}
                           {% endfor %}
@@ -92,11 +95,11 @@
                 {% endfor %}
               </tr>
               <tr>
-                <th class="mdl-data-table__cell--non-numeric">
+                <th class="mdl-data-table__cell--non-numeric mdl-shadow--4dp">
                   09:55 - 11:45
                 </th>
                 {% for num in range %}
-                  <td class="mdl-data-table__cell--non-numeric">
+                  <td class="mdl-data-table__cell--non-numeric mdl-shadow--4dp">
                     {% for key, value in uc_por_curso.items %}
                       {% for uc in value %}
                         {% if curso.nome == key %}
@@ -106,6 +109,8 @@
                                 {{ uc.nome }}
                                 <hr />
                                 Prof. {{ uc.professor }}
+                                <hr />
+                                Sala {{ uc.sala }}
                               {% endif %}
                             {% endif %}
                           {% endfor %}
@@ -118,11 +123,11 @@
               {% endif %}
               {% if curso.turno == 'Noturno' %}
               <tr>
-                <th class="mdl-data-table__cell--non-numeric">
+                <th class="mdl-data-table__cell--non-numeric mdl-shadow--4dp">
                   18:30 - 20:20
                 </th>
                 {% for num in range %}
-                  <td class="mdl-data-table__cell--non-numeric">
+                  <td class="mdl-data-table__cell--non-numeric mdl-shadow--4dp">
                     {% for key, value in uc_por_curso.items %}
                       {% for uc in value %}
                         {% if curso.nome == key %}
@@ -132,6 +137,8 @@
                                 {{ uc.nome }}
                                 <hr />
                                 Prof. {{ uc.professor }}
+                                <hr />
+                                Sala {{ uc.sala }}
                               {% endif %}
                             {% endif %}
                           {% endfor %}
@@ -142,11 +149,11 @@
                   {% endfor %}
               </tr>
               <tr>
-                <th class="mdl-data-table__cell--non-numeric">
+                <th class="mdl-data-table__cell--non-numeric mdl-shadow--4dp">
                   20:40 - 22:30
                 </th>
                 {% for num in range %}
-                  <td class="mdl-data-table__cell--non-numeric">
+                  <td class="mdl-data-table__cell--non-numeric mdl-shadow--4dp">
                     {% for key, value in uc_por_curso.items %}
                       {% for uc in value %}
                         {% if curso.nome == key %}
@@ -156,6 +163,8 @@
                                 {{ uc.nome }}
                                 <hr />
                                 Prof. {{ uc.professor }}
+                                <hr />
+                                Sala {{ uc.sala }}
                               {% endif %}
                             {% endif %}
                           {% endfor %}
@@ -168,11 +177,11 @@
               {% endif %}
               {% if curso.turno == 'Vespertino'  or curso.turno == 'Integral' %}
               <tr>
-                <th class="mdl-data-table__cell--non-numeric">
+                <th class="mdl-data-table__cell--non-numeric mdl-shadow--4dp">
                   13:15 - 15:05
                 </th>
                 {% for num in range %}
-                  <td class="mdl-data-table__cell--non-numeric">
+                  <td class="mdl-data-table__cell--non-numeric mdl-shadow--4dp">
                     {% for key, value in uc_por_curso.items %}
                       {% for uc in value %}
                         {% if curso.nome == key %}
@@ -182,6 +191,8 @@
                                 {{ uc.nome }}
                                 <hr />
                                 Prof. {{ uc.professor }}
+                                <hr />
+                                Sala {{ uc.sala }}
                               {% endif %}
                             {% endif %}
                           {% endfor %}
@@ -192,11 +203,11 @@
                 {% endfor %}
               </tr>
               <tr>
-                <th class="mdl-data-table__cell--non-numeric">
+                <th class="mdl-data-table__cell--non-numeric mdl-shadow--4dp">
                   15:25 - 17:15
                 </th>
                 {% for num in range %}
-                  <td class="mdl-data-table__cell--non-numeric">
+                  <td class="mdl-data-table__cell--non-numeric mdl-shadow--4dp">
                     {% for key, value in uc_por_curso.items %}
                       {% for uc in value %}
                         {% if curso.nome == key %}
@@ -206,6 +217,8 @@
                                 {{ uc.nome }}
                                 <hr />
                                 Prof. {{ uc.professor }}
+                                <hr />
+                                Sala {{ uc.sala }}
                               {% endif %}
                             {% endif %}
                           {% endfor %}
@@ -218,6 +231,7 @@
               {% endif %}
             </tbody>
           </table>
+        </div>
       </div>
     </section>
   {% endfor %}

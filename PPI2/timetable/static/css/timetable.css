@@ -1,3 +1,9 @@
+.mdl-layout__header-row > p:nth-child(2) {
+  position: absolute;
+  left: 90%;
+  font-family: "Roboto";
+}
+
 .mdl-layout__header > .mdl-layout-icon {
   padding-top: 5px;
 }
@@ -91,10 +97,17 @@ div > img {
 }
 
 .mdl-data-table {
-  margin: auto;
-  margin-top: 5em;
-  margin-bottom: 5em;
-  width: 70%;
+	border-collapse: separate;
+	border-spacing: 1em 1em;
+  background-color: #8bc34a;
+  margin: 5em auto;
+}
+
+.mdl-data-table td {
+    text-align: center;
+    background-color: white;
+    height: 165px;
+    width: 160px;
 }
 
 .mdl-layout__content {
@@ -107,10 +120,24 @@ div > img {
   position: relative;
 }
 
+.mdl-data-table__cell--non-numeric.mdl-data-table__cell--non-numeric {
+	text-align: center;
+  border-right: 1px solid rgba(0,0,0,.12)
+}
+
 .mdl-data-table th {
   vertical-align: middle;
+  background-color: #8bc34a;
+  border: 1px solid rgba(0,0,0,.12);
+  font-weight: 800;
+  font-size: 14px;
 }
 
 .page-content > h6 {
   margin-left: 2em;
+}
+
+.table-wrapper {
+  overflow-x: auto;
+  margin-bottom: 40px;
 }
