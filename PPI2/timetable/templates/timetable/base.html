@@ -25,18 +25,33 @@
         <div class="mdl-layout__header-row">
           {% block header %}{% endblock %}
           <div class="mdl-layout-spacer"></div>
-          <button id="login_button" class="mdl-button mdl-js-button
-          mdl-js-ripple-effect mdl-button--raised"
-          onclick="document.getElementById('login_modal').style.display='block'">
-            Login
-          </button>
+          {% if user.is_anonymous %}
+            <button id="login_button" class="mdl-button mdl-js-button
+            mdl-js-ripple-effect mdl-button--raised"
+            onclick="document.getElementById('login_modal').style.display='block'">
+              Login
+            </button>
+          {% endif %}
           {% if user.is_authenticated %}
-            <button type="button" class="mdl-chip">
+            <span class="mdl-chip">
               <span class="mdl-chip__contact mdl-color--teal mdl-color-text--white">
                 {{ user.username.0 }}
               </span>
-              <span class="mdl-chip__text">{{ user.username }} <small>(<a href="{% url 'logout' %}">Sair</a>)</small></span>
-            </button>
+              <span class="mdl-chip__text">{{ user.username }}
+                <!-- <small>(<a href="{% url 'logout' %}">Sair</a>)
+                </small> -->
+                <button type="button" class="mdl-chip__action" id="user_actions">
+                  <i class="material-icons">
+                    keyboard_arrow_down
+                  </i>
+                </button>
+                <ul class="mdl-menu mdl-js-menu mdl-menu--bottom-right mdl-js-ripple-effect"
+                for="user_actions">
+                  <a href="{% url 'logout' %}"><li class="mdl-menu__item">Sair</li></a>
+                  <li class="mdl-menu__item">Alterar senha</li>
+                </ul>
+              </span>
+            </span>
           {% endif %}
         </div>
         {% block tabs_cursos %}{% endblock %}
@@ -84,6 +99,9 @@
       <form class="login_form" method="post" action="{% url 'login' %}">
         {% csrf_token %}
            <div class="container login_modal_content">
+             <div class="modal_header">
+               <h2 class="mdl-dialog__title">Entrar</h2>
+             </div>
              <div class="mdl-textfield mdl-js-textfield">
                <label class="mdl-textfield__label" for="id_username">Usuário</label>
                <input class="mdl-textfield__input" id="id_username" type="text"

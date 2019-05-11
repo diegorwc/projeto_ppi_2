@@ -181,3 +181,7 @@ button#login_button.mdl-button.mdl-js-button.mdl-js-ripple-effect.mdl-button--ra
 .mdl-chip {
   background-color: #8fbc5b;
 }
+
+.mdl-menu > a {
+  text-decoration: none;
+}
