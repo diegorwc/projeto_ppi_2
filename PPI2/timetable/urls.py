@@ -1,4 +1,4 @@
-from django.urls import path
+from django.urls import path, include
 from django.contrib import admin
 from . import views
 
@@ -9,5 +9,6 @@ urlpatterns = [
     path(
         'unidades_curriculares', views.unidades_curriculares,
         name='unidades_curriculares'
-    ),
+    ),    
+    path('horarios/', include('django.contrib.auth.urls')),
 ]

@@ -1,0 +1,287 @@
+{% extends 'timetable/base.html' %}
+{% load static %}
+
+{% block head %}
+  <!-- <link rel="stylesheet" href="{% static 'css/getmdl-select.min.css' %}"> -->
+  <!-- <script defer src="{% static 'javascript/getmdl-select.min.js' %}"></script> -->
+{% endblock %}
+
+{% block header %}
+  <span class="mdl-layout__title">Cursos</span>
+  <div class="mdl-layout-spacer"></div>
+  <button id="novo_curso_button" class="mdl-button mdl-js-button
+  mdl-js-ripple-effect mdl-button--raised">
+    <i class="material-icons">add</i>
+  </button>
+{% endblock %}
+
+{% block tabs_cursos %}
+    <div class="mdl-layout__tab-bar mdl-js-ripple-effect">
+      {% for curso in lista_cursos %}
+      {% if forloop.counter == 1 %}
+        <a href="#scroll-tab-{{ forloop.counter }}" class="mdl-layout__tab is-active">
+      {% endif %}
+      {% if forloop.counter != 1 %}
+        <a href="#scroll-tab-{{ forloop.counter }}" class="mdl-layout__tab">
+      {% endif %}
+          {{ curso.nome }}
+        </a>
+      {% endfor %}
+    </div>
+{% endblock %}
+
+{% block conteudo %}
+  {% for curso in lista_cursos %}
+    {% if forloop.counter == 1 %}
+      <section class="mdl-layout__tab-panel is-active"
+      id="scroll-tab-{{ forloop.counter }}">
+    {% endif %}
+    {% if forloop.counter != 1 %}
+      <section class="mdl-layout__tab-panel"
+      id="scroll-tab-{{ forloop.counter }}">
+    {% endif %}
+      <div class="page-content">
+        <h6 class="mdl-layout__title">Coordenador: {{ curso.coordenador }}</h6>
+        <div class="table-wrapper">
+          <table class="mdl-data-table mdl-js-data-table mdl-shadow--4dp">
+            <thead>
+              <tr>
+                <th class="mdl-data-table__cell--non-numeric mdl-shadow--4dp">
+                  Horário
+                </th>
+                <th class="mdl-data-table__cell--non-numeric mdl-shadow--4dp">
+                  Segunda-feira
+                </th>
+                <th class="mdl-data-table__cell--non-numeric mdl-shadow--4dp">
+                  Terça-feira
+                </th>
+                <th class="mdl-data-table__cell--non-numeric mdl-shadow--4dp">
+                  Quarta-feira
+                </th>
+                <th class="mdl-data-table__cell--non-numeric mdl-shadow--4dp">
+                  Quinta-feira
+                </th>
+                <th class="mdl-data-table__cell--non-numeric mdl-shadow--4dp">
+                  Sexta-feira
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              {% if curso.turno == 'Matutino' or curso.turno == 'Integral' %}
+              <tr>
+                <th class="mdl-data-table__cell--non-numeric mdl-shadow--4dp">
+                  07:45 - 09:35
+                </th>
+                {% for num in range %}
+                  <td class="mdl-data-table__cell--non-numeric mdl-shadow--4dp">
+                    {% for key, value in uc_por_curso.items %}
+                      {% for uc in value %}
+                        {% if curso.nome == key %}
+                          {% for dia in uc.dias_das_aulas %}
+                            {% if dia == num %}
+                              {% if uc.horarioInicioToString == '07:45:00' %}
+                                {{ uc.nome }}
+                                <hr />
+                                Prof. {{ uc.professor }}
+                                <hr />
+                                Sala {{ uc.sala }}
+                              {% endif %}
+                            {% endif %}
+                          {% endfor %}
+                        {% endif %}
+                      {% endfor %}
+                    {% endfor %}
+                  </td>
+                {% endfor %}
+              </tr>
+              <tr>
+                <th class="mdl-data-table__cell--non-numeric mdl-shadow--4dp">
+                  09:55 - 11:45
+                </th>
+                {% for num in range %}
+                  <td class="mdl-data-table__cell--non-numeric mdl-shadow--4dp">
+                    {% for key, value in uc_por_curso.items %}
+                      {% for uc in value %}
+                        {% if curso.nome == key %}
+                          {% for dia in uc.dias_das_aulas %}
+                            {% if dia == num %}
+                              {% if uc.horarioInicioToString == '09:55:00' %}
+                                {{ uc.nome }}
+                                <hr />
+                                Prof. {{ uc.professor }}
+                                <hr />
+                                Sala {{ uc.sala }}
+                              {% endif %}
+                            {% endif %}
+                          {% endfor %}
+                        {% endif %}
+                      {% endfor %}
+                    {% endfor %}
+                  </td>
+                {% endfor %}
+              </tr>
+              {% endif %}
+              {% if curso.turno == 'Noturno' %}
+              <tr>
+                <th class="mdl-data-table__cell--non-numeric mdl-shadow--4dp">
+                  18:30 - 20:20
+                </th>
+                {% for num in range %}
+                  <td class="mdl-data-table__cell--non-numeric mdl-shadow--4dp">
+                    {% for key, value in uc_por_curso.items %}
+                      {% for uc in value %}
+                        {% if curso.nome == key %}
+                          {% for dia in uc.dias_das_aulas %}
+                            {% if dia == num %}
+                              {% if uc.horarioInicioToString == '18:30:00' %}
+                                {{ uc.nome }}
+                                <hr />
+                                Prof. {{ uc.professor }}
+                                <hr />
+                                Sala {{ uc.sala }}
+                              {% endif %}
+                            {% endif %}
+                          {% endfor %}
+                        {% endif %}
+                      {% endfor %}
+                    {% endfor %}
+                  </td>
+                  {% endfor %}
+              </tr>
+              <tr>
+                <th class="mdl-data-table__cell--non-numeric mdl-shadow--4dp">
+                  20:40 - 22:30
+                </th>
+                {% for num in range %}
+                  <td class="mdl-data-table__cell--non-numeric mdl-shadow--4dp">
+                    {% for key, value in uc_por_curso.items %}
+                      {% for uc in value %}
+                        {% if curso.nome == key %}
+                          {% for dia in uc.dias_das_aulas %}
+                            {% if dia == num %}
+                              {% if uc.horarioInicioToString == '20:20:00' %}
+                                {{ uc.nome }}
+                                <hr />
+                                Prof. {{ uc.professor }}
+                                <hr />
+                                Sala {{ uc.sala }}
+                              {% endif %}
+                            {% endif %}
+                          {% endfor %}
+                        {% endif %}
+                      {% endfor %}
+                    {% endfor %}
+                  </td>
+                {% endfor %}
+              </tr>
+              {% endif %}
+              {% if curso.turno == 'Vespertino'  or curso.turno == 'Integral' %}
+              <tr>
+                <th class="mdl-data-table__cell--non-numeric mdl-shadow--4dp">
+                  13:15 - 15:05
+                </th>
+                {% for num in range %}
+                  <td class="mdl-data-table__cell--non-numeric mdl-shadow--4dp">
+                    {% for key, value in uc_por_curso.items %}
+                      {% for uc in value %}
+                        {% if curso.nome == key %}
+                          {% for dia in uc.dias_das_aulas %}
+                            {% if dia == num %}
+                              {% if uc.horarioInicioToString == '13:15:00' %}
+                                {{ uc.nome }}
+                                <hr />
+                                Prof. {{ uc.professor }}
+                                <hr />
+                                Sala {{ uc.sala }}
+                              {% endif %}
+                            {% endif %}
+                          {% endfor %}
+                        {% endif %}
+                      {% endfor %}
+                    {% endfor %}
+                  </td>
+                {% endfor %}
+              </tr>
+              <tr>
+                <th class="mdl-data-table__cell--non-numeric mdl-shadow--4dp">
+                  15:25 - 17:15
+                </th>
+                {% for num in range %}
+                  <td class="mdl-data-table__cell--non-numeric mdl-shadow--4dp">
+                    {% for key, value in uc_por_curso.items %}
+                      {% for uc in value %}
+                        {% if curso.nome == key %}
+                          {% for dia in uc.dias_das_aulas %}
+                            {% if dia == num %}
+                              {% if uc.horarioInicioToString == '15:25:00' %}
+                                {{ uc.nome }}
+                                <hr />
+                                Prof. {{ uc.professor }}
+                                <hr />
+                                Sala {{ uc.sala }}
+                              {% endif %}
+                            {% endif %}
+                          {% endfor %}
+                        {% endif %}
+                      {% endfor %}
+                    {% endfor %}
+                  </td>
+                {% endfor %}
+              </tr>
+              {% endif %}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+  {% endfor %}
+{% endblock %}
+
+{% block form %}
+<!--  Novo curso modal form -->
+<div id="novo_curso_modal" class="novo_curso_modal">
+  <div class="modal_content">
+    <div class="modal_header">
+      <h2 class="mdl-dialog__title">Cadastrar novo curso</h2>
+    </div>
+    <form method="post">
+      {% csrf_token %}
+      <div class="mdl-textfield mdl-js-textfield">
+        <label class="mdl-textfield__label" for="id_{{ form.nome.name }}">
+          Nome
+        </label>
+        {{ form.nome }}
+      </div>
+      <div class="mdl-textfield mdl-js-textfield">
+        <label class="mdl-textfield__label" for="id_{{ form.coordenador.name }}">
+          Coordenador
+        </label>
+        <br />
+        {{ form.coordenador }}
+      </div>
+      <div class="mdl-textfield mdl-js-textfield">
+        <label class="mdl-textfield__label"
+        for="id_{{ form.quantidade_de_modulos.name }}">
+          Quantidade de módulos
+        </label>
+        {{ form.quantidade_de_modulos }}
+      </div>
+      <div class="mdl-textfield mdl-js-textfield getmdl-select">
+        <label class="mdl-textfield__label" for="id_{{ form.turno.name }}">
+        </label>
+        {{ form.turno }}
+      </div>
+      <button class="mdl-button mdl-js-button mdl-button--raised
+      mdl-js-ripple-effect mdl-button--accent" id="modal_enviar"
+      type="submit">
+        Enviar
+      </button>
+    </form>
+    </div>
+  </div>
+{% endblock %}
+
+{% block script %}
+  <script src="{% static 'javascript/novo_curso.js' %}">
+  </script>
+{% endblock %}

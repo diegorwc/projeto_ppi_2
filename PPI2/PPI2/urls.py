@@ -19,6 +19,7 @@ from django.contrib.auth import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('usuarios/', include('django.contrib.auth.urls')),
     path('perguntas/', include('questions_and_answers.urls')),
     path('horarios/', include('timetable.urls')),
     path('', include('timetable.urls')),
