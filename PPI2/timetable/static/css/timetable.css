@@ -99,7 +99,7 @@ div > img {
 .mdl-data-table {
 	border-collapse: separate;
 	border-spacing: 1em 1em;
-  background-color: #8bc34a;
+  background-color: white;
   margin: 5em auto;
 }
 
@@ -210,4 +210,27 @@ input.mdl-button {
 
 .reset-fields {
   margin: 0 1em;
+}
+
+h5 {
+  text-align: center;
+  color: red;
+}
+
+form button#modal_enviar.mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-button--accent {
+  display: block;
+  margin: auto;
+  min-width: 300px;
+}
+
+.modal_content > div:nth-child(1) > h2:nth-child(1) {
+  text-align: center;
+}
+
+#novo_curso_button {
+  margin-left: 65em;
+}
+
+#nova_unidade_curricular_button {
+  margin-left: 60em;
 }

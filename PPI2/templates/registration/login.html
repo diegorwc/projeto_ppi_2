@@ -1,26 +1,16 @@
 {% extends "timetable/base.html" %}
 
 {% block conteudo %}
-   {% if form.errors %}
-    <p>Erro de usuário ou senha</p>
+   {% if form.errors %}   
+     <h5>Erro de usuário ou senha</h5>
    {% endif %}
 
-   <!-- <form class="login_form" method="post" action="{% url 'login' %}">
+   <form class="login_form" method="post" action="{% url 'login' %}">
      {% csrf_token %}
-        <!-- <table>
-        <tr>
-            <td>{{ form.username.label_tag }}</td>
-            <td>{{ form.username }}</td>
-        </tr>
-        <tr>
-            <td>{{ form.password.label_tag }}</td>
-            <td>{{ form.password }}</td>
-        </tr>
-        </table>
-
-        <input type="submit" value="login" />
-        <input type="hidden" name="next" value="{{ next }}" /> -->
-        <div class="container">
+        <div class="container login_modal_content">
+          <div class="modal_header">
+            <h2 class="mdl-dialog__title">Entrar</h2>
+          </div>
           <div class="mdl-textfield mdl-js-textfield">
             <label class="mdl-textfield__label" for="id_username">Usuário</label>
             <input class="mdl-textfield__input" id="id_username" type="text"
@@ -35,10 +25,13 @@
             type="password" name="password" />
           </div>
           <br />
+          <button class="mdl-button mdl-js-button
+          mdl-js-ripple-effect mdl-button--raised login_button" type="submit">
+          Login
+          </button>
+          <div>
+            <span>Esqueceu a <a href="{% url 'password_reset' %}">senha?</a></span>
+          </div>
         </div>
-        <div class="container" style="background-color:#f1f1f1">
-          <button type="button" class="cancelbtn">Cancel</button>
-          <span class="psw">Forgot <a href="#">password?</a></span>
-        </div>
-   </form> -->
+   </form>
 {% endblock %}
