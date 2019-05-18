@@ -148,7 +148,7 @@ div > img {
 
 .login_modal_content {
   background-color: #fefefe;
-  margin: 5px auto;
+  margin: 2em auto;
   border: 1px solid #888;
   width: 40%;
   padding: 2em;
@@ -168,7 +168,7 @@ button#login_button.mdl-button.mdl-js-button.mdl-js-ripple-effect.mdl-button--ra
 .close {
   position: absolute;
   right: 400px;
-  top: 17px;
+  top: 43px;
   color: #8bc34a;
   font-size: 35px;
   font-weight: bold;
@@ -233,4 +233,13 @@ form button#modal_enviar.mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripp
 
 #nova_unidade_curricular_button {
   margin-left: 60em;
+}
+
+#deleta_curso_button {
+  margin: 1em;
+  background-color: #8bc34a;
+}
+
+#deleta_curso_button:hover {
+  background-color: #009688;
 }

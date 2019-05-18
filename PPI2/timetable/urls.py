@@ -9,6 +9,7 @@ urlpatterns = [
     path(
         'unidades_curriculares', views.unidades_curriculares,
         name='unidades_curriculares'
-    ),    
+    ),
     path('horarios/', include('django.contrib.auth.urls')),
+    path('cursos/<pk>/deleta_curso', views.deleta_curso, name='deleta_curso'),
 ]

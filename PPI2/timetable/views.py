@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from .forms import FormCurso, FormUnidadeCurricular
 from .models import Curso, Professor, UnidadeCurricular
 from django.http import HttpResponseRedirect
@@ -63,3 +63,8 @@ def unidades_curriculares(request):
         request, 'timetable/unidades_curriculares.html', {'form': form,
         'lista_unidades_curriculares': lista_unidades_curriculares}
     )
+
+def deleta_curso(request, pk):
+    curso = get_object_or_404(Curso, pk=pk)
+    curso.delete()
+    return redirect('cursos')

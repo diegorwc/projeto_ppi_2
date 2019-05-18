@@ -1,7 +1,7 @@
 {% extends "timetable/base.html" %}
 
 {% block conteudo %}
-   {% if form.errors %}   
+   {% if form.errors %}
      <h5>Erro de usuário ou senha</h5>
    {% endif %}
 
@@ -12,16 +12,16 @@
             <h2 class="mdl-dialog__title">Entrar</h2>
           </div>
           <div class="mdl-textfield mdl-js-textfield">
-            <label class="mdl-textfield__label" for="id_username">Usuário</label>
-            <input class="mdl-textfield__input" id="id_username" type="text"
+            <label class="mdl-textfield__label" for="id_username_login">Usuário</label>
+            <input class="mdl-textfield__input" id="id_username_login" type="text"
             name="username" />
           </div>
           <br />
           <div class="mdl-textfield mdl-js-textfield">
-            <label class="mdl-textfield__label" for="{{  form.password.name }}">
+            <label class="mdl-textfield__label" for="id_{{  form.password.name }}_login">
               Senha
             </label>
-            <input class="mdl-textfield__input" id="id_{{ form.password.name }}"
+            <input class="mdl-textfield__input" id="id_{{ form.password.name }}_login"
             type="password" name="password" />
           </div>
           <br />

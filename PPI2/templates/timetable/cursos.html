@@ -41,7 +41,11 @@
       id="scroll-tab-{{ forloop.counter }}">
     {% endif %}
       <div class="page-content">
-        <h6 class="mdl-layout__title">Coordenador: {{ curso.coordenador }}</h6>
+        <a id="deleta_curso_button" class="mdl-button mdl-js-button
+        mdl-js-ripple-effect mdl-button--raised"
+        href="{% url 'deleta_curso' pk=curso.pk %}">
+          <i class="material-icons">delete</i>
+        </a>        
         <div class="table-wrapper">
           <table class="mdl-data-table mdl-js-data-table mdl-shadow--4dp table-horario">
             <thead>
