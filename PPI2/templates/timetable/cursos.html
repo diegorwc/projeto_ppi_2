@@ -46,10 +46,15 @@
           mdl-js-ripple-effect mdl-button--raised">
             <i class="material-icons">edit</i>
           </button>
-          <button id="{{ curso.pk }}" class="mdl-button mdl-js-button
+          <!-- <button id="{{ curso.pk }}" class="mdl-button mdl-js-button
           mdl-js-ripple-effect mdl-button--raised">
             <i class="material-icons">delete</i>
-          </button>
+          </button> -->
+          <a href="{% url 'deleta_curso' pk=curso.pk %}" class="mdl-button
+          mdl-js-button mdl-js-ripple-effect mdl-button--raised">
+            <i class="material-icons">delete</i>
+          </a>
+
         </div>
         <div id="excluir_curso_modal" class="novo_curso_modal">
           <div class="modal_content">

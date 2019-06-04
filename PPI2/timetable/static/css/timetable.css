@@ -251,7 +251,7 @@ a.mdl-button--accent:nth-child(1) {
 }
 
 .menu-acoes {
-  /* border: solid 1px black; */ 
+  /* border: solid 1px black; */
   margin: 1em auto;
   /* height: 1em; */
   width: 50%;
@@ -259,4 +259,17 @@ a.mdl-button--accent:nth-child(1) {
 
 #novo_curso_button {
   left: 450px;
+}
+
+.menu-acoes > a {
+  background-color: #8bc34a;
+}
+
+.menu-acoes > a:hover {
+  background-color: #009688;
+  color: black;
+}
+
+.bg-light-green {
+  background-color: #009688;
 }
