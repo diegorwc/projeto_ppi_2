@@ -41,11 +41,34 @@
       id="scroll-tab-{{ forloop.counter }}">
     {% endif %}
       <div class="page-content">
-        <a id="deleta_curso_button" class="mdl-button mdl-js-button
-        mdl-js-ripple-effect mdl-button--raised"
-        href="{% url 'deleta_curso' pk=curso.pk %}">
-          <i class="material-icons">delete</i>
-        </a>        
+        <div class="menu-acoes">
+          <button id="edita_curso_button" class="mdl-button mdl-js-button
+          mdl-js-ripple-effect mdl-button--raised">
+            <i class="material-icons">edit</i>
+          </button>
+          <button id="{{ curso.pk }}" class="mdl-button mdl-js-button
+          mdl-js-ripple-effect mdl-button--raised">
+            <i class="material-icons">delete</i>
+          </button>
+        </div>
+        <div id="excluir_curso_modal" class="novo_curso_modal">
+          <div class="modal_content">
+            <div class="modal_header">
+              <h2 class="mdl-dialog__title">Excluir curso?</h2>
+            </div>
+            <div class="mdl-dialog__actions">
+              <a id="cancelar" class="mdl-button mdl-js-button mdl-button--raised
+              mdl-js-ripple-effect mdl-button--accent" href="#">
+                Cancelar
+              </a>
+              <a id="deleta_curso_button" class="mdl-button mdl-js-button
+              mdl-js-ripple-effect mdl-button--raised"
+              href="{% url 'deleta_curso' pk=curso.pk %}">
+                Excluir
+              </a>
+            </div>
+          </div>
+        </div>
         <div class="table-wrapper">
           <table class="mdl-data-table mdl-js-data-table mdl-shadow--4dp table-horario">
             <thead>
@@ -278,14 +301,17 @@
       <button class="mdl-button mdl-js-button mdl-button--raised
       mdl-js-ripple-effect mdl-button--accent" id="modal_enviar"
       type="submit">
-        Enviar
+        Cadastrar
       </button>
     </form>
     </div>
   </div>
+
 {% endblock %}
 
 {% block script %}
   <script src="{% static 'javascript/novo_curso.js' %}">
+  </script>
+  <script src="{% static 'javascript/excluir_curso.js' %}">
   </script>
 {% endblock %}

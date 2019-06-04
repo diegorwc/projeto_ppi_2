@@ -1,8 +1,10 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from .forms import FormCurso, FormUnidadeCurricular
 from .models import Curso, Professor, UnidadeCurricular
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect, HttpResponse
 from django.contrib.auth.decorators import login_required
+from django.core.mail import send_mail, BadHeaderError
+from .forms import ContatoForm
 import pdb
 
 # Create your views here.
@@ -68,3 +70,23 @@ def deleta_curso(request, pk):
     curso = get_object_or_404(Curso, pk=pk)
     curso.delete()
     return redirect('cursos')
+
+def contato(request):
+    if request.method == 'GET':
+        email_form = ContatoForm()
+    else:
+        email_form = ContatoForm(request.POST)
+        if email_form.is_valid():
+            emissor = email_form.cleaned_data['emissor']
+            assunto = email_form.cleaned_data['assunto']
+            msg = email_form.cleaned_data['msg']
+
+            try:
+                send_mail(assunto, msg, emissor, ['wille.diegoricardo@gmail.com'])
+            except BadHeaderError:
+                return HttpResponse("Erro =/")
+            return redirect('obg')
+    return render(request, 'timetable/contato.html', {'form': email_form})
+
+def obg(request):
+    return HttpResponse("<h2>Obrigado pela mensagem!!!</h2>")

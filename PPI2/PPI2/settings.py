@@ -39,7 +39,10 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'questions_and_answers',
     'timetable',
+    'crispy_forms',
 ]
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -133,5 +136,11 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 LOGIN_REDIRECT_URL = '/horarios'
 
-EMAIL_BACKEND = "django.core.mail.backends.filebased.EmailBackend"
+# EMAIL_BACKEND = "django.core.mail.backends.filebased.EmailBackend"
 EMAIL_FILE_PATH = os.path.join(BASE_DIR, "sent_emails")
+
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'diego.r07@aluno.ifsc.edu.br'
+EMAIL_HOST_PASSWORD = 'rrxaartcrdgvkiyp'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True

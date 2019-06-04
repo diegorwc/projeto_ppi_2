@@ -66,7 +66,8 @@ div > img {
   margin: auto;
 }
 
-.novo_curso_modal, .nova_unidade_curricular_modal, .login_modal {
+.novo_curso_modal, .nova_unidade_curricular_modal, .login_modal,
+.excluir_curso_modal {
   display: none;
   position: fixed;
   z-index: 3;
@@ -77,6 +78,11 @@ div > img {
   overflow: auto;
   background-color: rgb(0, 0, 0);
   background-color: rgb(0, 0, 0, 0.4);
+}
+
+#excluir_curso_modal > div:nth-child(1) {
+  margin: 12% auto;
+  width: 35%;
 }
 
 .modal_content {
@@ -100,7 +106,7 @@ div > img {
 	border-collapse: separate;
 	border-spacing: 1em 1em;
   background-color: white;
-  margin: 5em auto;
+  margin: 1em auto;
 }
 
 .mdl-data-table td {
@@ -227,19 +233,30 @@ form button#modal_enviar.mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripp
   text-align: center;
 }
 
-#novo_curso_button {
-  margin-left: 65em;
-}
-
 #nova_unidade_curricular_button {
   margin-left: 60em;
 }
 
-#deleta_curso_button {
+#deleta_curso_button, #edita_curso_button {
   margin: 1em;
   background-color: #8bc34a;
 }
 
-#deleta_curso_button:hover {
+#deleta_curso_button:hover, #edita_curso_button:hover {
   background-color: #009688;
+}
+
+a.mdl-button--accent:nth-child(1) {
+  margin: 14px;
+}
+
+.menu-acoes {
+  /* border: solid 1px black; */ 
+  margin: 1em auto;
+  /* height: 1em; */
+  width: 50%;
+}
+
+#novo_curso_button {
+  left: 450px;
 }
