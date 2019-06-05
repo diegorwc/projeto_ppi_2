@@ -11,3 +11,9 @@ window.onclick = function(event) {
     modalNovoCurso.style.display = "none";
   }
 }
+
+$(function() {
+  $("#novo_curso_modal .close").click(function() {
+    $("#novo_curso_modal").css("display", "none");
+  })
+});

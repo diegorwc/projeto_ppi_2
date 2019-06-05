@@ -42,10 +42,14 @@
     {% endif %}
       <div class="page-content">
         <div class="menu-acoes">
-          <button id="edita_curso_button" class="mdl-button mdl-js-button
+          <!-- <button id="edita_curso_button" class="mdl-button mdl-js-button
           mdl-js-ripple-effect mdl-button--raised">
             <i class="material-icons">edit</i>
-          </button>
+          </button> -->
+          <a href="#" id="edita_curso_button" class="mdl-button
+          mdl-js-button mdl-js-ripple-effect mdl-button--raised">
+            <i class="material-icons">edit</i>
+          </a>
           <!-- <button id="{{ curso.pk }}" class="mdl-button mdl-js-button
           mdl-js-ripple-effect mdl-button--raised">
             <i class="material-icons">delete</i>
@@ -272,6 +276,10 @@
 {% block form %}
 <!--  Novo curso modal form -->
 <div id="novo_curso_modal" class="novo_curso_modal">
+  <span onclick="document.getElementById('login_modal').style.display='none'"
+  class="close">
+    &times;
+  </span>
   <div class="modal_content">
     <div class="modal_header">
       <h2 class="mdl-dialog__title">Cadastrar novo curso</h2>

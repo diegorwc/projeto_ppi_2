@@ -90,7 +90,7 @@ div > img {
   margin: 5% auto;
   padding: 20px;
   border: 1px solid #888;
-  width: 80%;
+  width: 45%;
 }
 
 .mdl-layout__tab-bar {
@@ -272,4 +272,8 @@ a.mdl-button--accent:nth-child(1) {
 
 .bg-light-green {
   background-color: #009688;
+}
+
+#novo_curso_modal > span {
+  top: 88px;
 }
