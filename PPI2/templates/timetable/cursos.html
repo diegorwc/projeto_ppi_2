@@ -46,8 +46,9 @@
           mdl-js-ripple-effect mdl-button--raised">
             <i class="material-icons">edit</i>
           </button> -->
-          <a href="#" id="edita_curso_button" class="mdl-button
-          mdl-js-button mdl-js-ripple-effect mdl-button--raised">
+          <a href="{% url 'edita_curso' pk=curso.pk %}" id="edita_curso_button"
+          class="mdl-button mdl-js-button mdl-js-ripple-effect
+          mdl-button--raised">
             <i class="material-icons">edit</i>
           </a>
           <!-- <button id="{{ curso.pk }}" class="mdl-button mdl-js-button

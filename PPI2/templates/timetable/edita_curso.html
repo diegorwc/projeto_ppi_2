@@ -1,0 +1,64 @@
+{% extends "timetable/base.html" %}
+
+{% block header %}
+  <span class="mdl-layout__title">Editar Curso</span>
+{% endblock %}
+
+{% block conteudo %}
+<!-- <form method="post">
+  {% csrf_token %}
+  <div class="mdl-textfield mdl-js-textfield">
+    <input class="mdl-textfield__input" type="text" value="{{ curso.nome }}"
+    id="nome_curso" required>
+    <label class="mdl-textfield__label" for="nome_curso">Nome do Curso</label>
+  </div>
+  <div class="mdl-textfield mdl-js-textfield">
+    <input class="mdl-textfield__input" type="text" value="{{ curso.coordenador }}"
+    id="nome_coordenador" required>
+    <label class="mdl-textfield__label" for="nome_coordenador">Nome do coordenador</label>
+  </div>
+  <div class="mdl-textfield mdl-js-textfield">
+    <input class="mdl-textfield__input" type="text" value="{{ curso.quantidade_de_modulos }}"
+    id="quantidade_de_modulos" required>
+    <label class="mdl-textfield__label" for="quantidade_de_modulos">Quantidade de módulos</label>
+  </div>
+  <div class="mdl-textfield mdl-js-textfield">
+    <input class="mdl-textfield__input" type="text" value="{{ curso.turno }}"
+    id="turno" required>
+    <label class="mdl-textfield__label" for="turno">Turno</label>
+  </div>
+</form> -->
+<form method="post">
+  {% csrf_token %}
+  <div class="mdl-textfield mdl-js-textfield">
+    <label class="mdl-textfield__label" for="id_{{ form.nome.name }}">
+      Nome
+    </label>
+    {{ form.nome }}
+  </div>
+  <div class="mdl-textfield mdl-js-textfield">
+    <label class="mdl-textfield__label" for="id_{{ form.coordenador.name }}">
+      Coordenador
+    </label>
+    <br />
+    {{ form.coordenador }}
+  </div>
+  <div class="mdl-textfield mdl-js-textfield">
+    <label class="mdl-textfield__label"
+    for="id_{{ form.quantidade_de_modulos.name }}">
+      Quantidade de módulos
+    </label>
+    {{ form.quantidade_de_modulos }}
+  </div>
+  <div class="mdl-textfield mdl-js-textfield getmdl-select">
+    <label class="mdl-textfield__label" for="id_{{ form.turno.name }}">
+    </label>
+    {{ form.turno }}
+  </div>
+  <button class="mdl-button mdl-js-button mdl-button--raised
+  mdl-js-ripple-effect mdl-button--accent" id="modal_enviar"
+  type="submit">
+    Editar
+  </button>
+</form>
+{% endblock %}

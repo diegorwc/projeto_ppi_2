@@ -12,6 +12,7 @@ urlpatterns = [
     ),
     path('horarios/', include('django.contrib.auth.urls')),
     path('cursos/<pk>/deleta_curso', views.deleta_curso, name='deleta_curso'),
+    path('cursos/<pk>/edita_curso', views.edita_curso, name='edita_curso'),
     path('contato/', views.contato, name='contato'),
     path('contato/obg', views.obg, name='obg'),
 ]

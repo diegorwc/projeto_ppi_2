@@ -71,6 +71,18 @@ def deleta_curso(request, pk):
     curso.delete()
     return redirect('cursos')
 
+def edita_curso(request, pk):
+    curso = get_object_or_404(Curso, pk=pk)
+    if request.method == "POST":
+        form = FormCurso(request.POST, instance=curso)
+        if form.is_valid():
+            curso = form.save()
+            return redirect('cursos')
+    else:
+        # return render(request, 'timetable/edita_curso.html', {'curso': curso})
+        form = FormCurso(instance=curso)
+    return render(request, 'timetable/edita_curso.html', {'form': form})
+
 def contato(request):
     if request.method == 'GET':
         email_form = ContatoForm()

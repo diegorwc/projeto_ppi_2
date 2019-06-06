@@ -277,3 +277,8 @@ a.mdl-button--accent:nth-child(1) {
 #novo_curso_modal > span {
   top: 88px;
 }
+
+.mdl-layout__content > form > .mdl-textfield {
+  display: block;
+  margin: auto;
+}
