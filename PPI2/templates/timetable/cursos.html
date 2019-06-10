@@ -55,8 +55,9 @@
           mdl-js-ripple-effect mdl-button--raised">
             <i class="material-icons">delete</i>
           </button> -->
-          <a href="{% url 'deleta_curso' pk=curso.pk %}" class="mdl-button
-          mdl-js-button mdl-js-ripple-effect mdl-button--raised">
+          <!-- <a href="{% url 'deleta_curso' pk=curso.pk %}" class="mdl-button -->
+          <a href="{% url 'deleta_curso_confirmacao' pk=curso.pk %}" class="mdl-button
+          mdl-js-button mdl-js-ripple-effect mdl-button--raised" id="deleta_curso_{{ curso.nome }}">
             <i class="material-icons">delete</i>
           </a>
 
@@ -64,7 +65,7 @@
         <div id="excluir_curso_modal" class="novo_curso_modal">
           <div class="modal_content">
             <div class="modal_header">
-              <h2 class="mdl-dialog__title">Excluir curso?</h2>
+              <h2 class="mdl-dialog__title">Excluir curso {{ curso.nome }}? </h2>
             </div>
             <div class="mdl-dialog__actions">
               <a id="cancelar" class="mdl-button mdl-js-button mdl-button--raised

@@ -102,3 +102,7 @@ def contato(request):
 
 def obg(request):
     return HttpResponse("<h2>Obrigado pela mensagem!!!</h2>")
+
+def deleta_curso_confirmacao(request, pk):
+    curso = get_object_or_404(Curso, pk=pk)
+    return render(request, 'timetable/excluir_curso.html', {'curso': curso})

@@ -282,3 +282,31 @@ a.mdl-button--accent:nth-child(1) {
   display: block;
   margin: auto;
 }
+
+#excluir_curso_card {
+  width: 80%;
+  margin: 2em auto;
+}
+
+.mdl-card__title > h3 {
+  margin: auto;
+}
+
+#deleta_curso {
+  width: 200px;
+}
+
+#excluir_curso_card > .mdl-card__actions {
+  width: 90%;
+  text-align: center;
+  padding: 16px;
+}
+
+#excluir_curso_card > .mdl-card__actions > a {
+  background-color: #8bc34a;
+}
+
+#excluir_curso_card > .mdl-card__actions > a:hover {
+  background-color: #009688;
+  color: black;
+}

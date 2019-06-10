@@ -1,0 +1,25 @@
+{% extends "timetable/base.html" %}
+
+{% block header %}
+  <span class="mdl-layout__title">Excluir Curso</span>
+{% endblock %}
+
+{% block conteudo %}
+  <div id="excluir_curso_card" class="mdl-card mdl-shadow--4dp">
+    <div class="mdl-card__title">
+      <h3>Você tem certeza que deseja excluir o curso {{ curso.nome }}?</h3>
+    </div>
+    <div class="mdl-card__supporting-text">
+      <h5>Curso: {{ curso.nome }}</h5>
+      <h5>Coordenador: {{ curso.coordenador }}</h5>
+      <h5>Turno: {{ curso.turno }}</h5>
+      <h5>Quantidade de módulos: {{ curso.quantidade_de_modulos }}</h5>
+    </div>
+    <div class="mdl-card__actions">
+      <a href="{% url 'deleta_curso' pk=curso.pk %}" class="mdl-button
+      mdl-js-button mdl-js-ripple-effect mdl-button--raised" id="deleta_curso">
+        <i class="material-icons">delete</i> Excluir 
+      </a>
+    </div>
+  </div>
+{% endblock %}
