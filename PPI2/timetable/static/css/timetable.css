@@ -67,7 +67,7 @@ div > img {
 }
 
 .novo_curso_modal, .nova_unidade_curricular_modal, .login_modal,
-.excluir_curso_modal {
+.excluir_curso_modal, .novo_professor_modal {
   display: none;
   position: fixed;
   z-index: 3;
@@ -309,4 +309,12 @@ a.mdl-button--accent:nth-child(1) {
 #excluir_curso_card > .mdl-card__actions > a:hover {
   background-color: #009688;
   color: black;
+}
+
+.lista-professores {
+  width: 15%;
+}
+
+#novo_professor_button {
+  margin-left: 70%;
 }

@@ -28,4 +28,8 @@ $(function() {
   $("#cancelar").click(function() {
     $("#excluir_curso_modal").css("display", "none");
   })
+
+  $("#novo_professor_button").click(function() {
+    $("#novo_professor_modal").css("display", "block");
+  })
 });

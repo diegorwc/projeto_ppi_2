@@ -1,7 +1,7 @@
 from django import forms
 from django.forms import ModelForm, Textarea, TextInput, NumberInput, Select, \
 TimeInput, CheckboxInput, SelectMultiple
-from .models import Curso, UnidadeCurricular
+from .models import Curso, UnidadeCurricular, Professor
 from crispy_forms.helper import FormHelper
 from crispy_forms.layout import Layout, Submit, Row, Column
 
@@ -17,6 +17,15 @@ class FormCurso(forms.ModelForm):
             'quantidade_de_modulos':  TextInput(attrs={'class': 'mdl-textfield__input',
             'pattern': '-?[0-9]*(\.[0-9]+)?'}),
             'turno': Select(attrs={'class': 'mdl-textfield__input'}),
+        }
+
+class FormProfessor(forms.ModelForm):
+
+    class Meta:
+        model = Professor
+        fields = ('nome', )
+        widgets = {
+            'nome': TextInput(attrs={'class': 'mdl-textfield__input'}),
         }
 
 class FormUnidadeCurricular(forms.ModelForm):

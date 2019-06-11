@@ -8,6 +8,7 @@
       href="{% static 'css/material.min.css' %}" />
     <script src="{% static 'javascript/material.min.js' %}"></script>
     <script src="{% static 'javascript/jquery-3.4.1.min.js' %}"></script>
+    <script src="{% static 'javascript/novo_curso.js' %}"></script>
     <link rel="stylesheet" href="{% static 'css/timetable.css' %}">
     <link rel="stylesheet"
       href="https://fonts.googleapis.com/icon?family=Material+Icons" />
@@ -64,7 +65,7 @@
         <nav class="mdl-navigation">
          <a href="{% url 'home' %}" class="mdl-navigation__link">Início</a>
          <a href="{% url 'cursos' %}" class="mdl-navigation__link">Cursos</a>
-         <a href="{% url 'home' %}" class="mdl-navigation__link">Professores</a>
+         <a href="{% url 'professores' %}" class="mdl-navigation__link">Professores</a>
          <a href="{% url 'unidades_curriculares' %}" class="mdl-navigation__link">Unidades Curriculares</a>
         </nav>
       </div>

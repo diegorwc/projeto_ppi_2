@@ -17,4 +17,5 @@ urlpatterns = [
     path('cursos/<pk>/edita_curso', views.edita_curso, name='edita_curso'),
     path('contato/', views.contato, name='contato'),
     path('contato/obg', views.obg, name='obg'),
+    path('professores', views.professores, name='professores'),
 ]

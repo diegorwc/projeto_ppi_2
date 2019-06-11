@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from .forms import FormCurso, FormUnidadeCurricular
+from .forms import FormCurso, FormUnidadeCurricular, FormProfessor
 from .models import Curso, Professor, UnidadeCurricular
 from django.http import HttpResponseRedirect, HttpResponse
 from django.contrib.auth.decorators import login_required
@@ -106,3 +106,17 @@ def obg(request):
 def deleta_curso_confirmacao(request, pk):
     curso = get_object_or_404(Curso, pk=pk)
     return render(request, 'timetable/excluir_curso.html', {'curso': curso})
+
+def professores(request):
+    professores = Professor.objects.all()
+    if request.method == 'POST':
+        form = FormProfessor(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('professores')
+        else:
+            return HttpResponse("<h2>Else error</h2>")
+    else:
+        form = FormCurso()
+    return render(request, 'timetable/professores.html',
+        {'professores': professores, 'form': form})

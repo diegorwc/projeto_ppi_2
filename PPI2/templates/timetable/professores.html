@@ -1,0 +1,51 @@
+{% extends 'timetable/base.html' %}
+
+{% block header %}
+  <span class="mdl-layout__title">Professores</span>
+  <button id="novo_professor_button" class="mdl-button mdl-js-button
+  mdl-js-ripple-effect mdl-button--raised">
+    <i class="material-icons">add</i>
+  </button>
+{% endblock %}
+
+{% block conteudo %}
+  {{ professores }}
+  <!-- <div class="mdl-list lista-professores">
+    <div class="mdl-list__item">
+      <span class="mdl-list__item-primary-content">
+        <i class="material-icons mdl-list-__item-avatar">person</i>
+        <span>Diego</span>
+      </span>
+      <a href="#" class="mdl-list__item-secondary-action">
+        <i class="material-icons">info</i>
+      </a>
+    </div>
+  </div> -->
+  <!--  Novo curso modal form -->
+  <div id="novo_professor_modal" class="novo_professor_modal">
+    <span onclick="document.getElementById('login_modal').style.display='none'"
+    class="close">
+      &times;
+    </span>
+    <div class="modal_content">
+      <div class="modal_header">
+        <h2 class="mdl-dialog__title">Cadastrar novo professor</h2>
+      </div>
+      <form method="post">
+        {% csrf_token %}
+        <div class="mdl-textfield mdl-js-textfield">
+          <label class="mdl-textfield__label" for="id_{{ form.nome.name }}">
+            Nome
+          </label>
+          {{ form.nome }}
+        </div>        
+        <button class="mdl-button mdl-js-button mdl-button--raised
+        mdl-js-ripple-effect mdl-button--accent" id="modal_enviar"
+        type="submit">
+          Cadastrar
+        </button>
+      </form>
+      </div>
+    </div>
+
+{% endblock %}
