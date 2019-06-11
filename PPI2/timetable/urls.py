@@ -1,6 +1,7 @@
 from django.urls import path, include
 from django.contrib import admin
 from . import views
+from django.views.generic import TemplateView
 
 
 urlpatterns = [
@@ -18,4 +19,10 @@ urlpatterns = [
     path('contato/', views.contato, name='contato'),
     path('contato/obg', views.obg, name='obg'),
     path('professores', views.professores, name='professores'),
+    path('professores/<pk>/deleta_professor_confirmacao', views.deleta_professor_confirmacao,
+        name='deleta_professor_confirmacao'),
+    path('professores/<pk>/deleta_professor', views.deleta_professor,
+        name='deleta_professor'),
+    path('professores/<pk>/edita_professor', views.editar_professor,
+        name='editar_professor'),
 ]

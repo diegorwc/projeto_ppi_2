@@ -1,0 +1,22 @@
+{% extends "timetable/base.html" %}
+
+{% block header %}
+  <span class="mdl-layout__title">Editar Professor</span>
+{% endblock %}
+
+{% block conteudo %}
+<form method="post">
+  {% csrf_token %}
+  <div class="mdl-textfield mdl-js-textfield">
+    <label class="mdl-textfield__label" for="id_{{ form.nome.name }}">
+      Nome
+    </label>
+    {{ form.nome }}
+  </div>  
+  <button class="mdl-button mdl-js-button mdl-button--raised
+  mdl-js-ripple-effect mdl-button--accent" id="modal_enviar"
+  type="submit">
+    Editar
+  </button>
+</form>
+{% endblock %}

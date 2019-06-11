@@ -107,8 +107,25 @@ def deleta_curso_confirmacao(request, pk):
     curso = get_object_or_404(Curso, pk=pk)
     return render(request, 'timetable/excluir_curso.html', {'curso': curso})
 
+# def deleta_professor_confirmacao(request, pk):
+    # professor = get_object_or_404(Professor, pk=pk)
+    # return HttpResponse("<h2>Else error</h2>")
+
+def deleta_professor_confirmacao(request, pk):
+    professor = get_object_or_404(Professor, pk=pk)
+    return render(request, 'timetable/excluir_professor.html',
+        {'professor': professor})
+
+def deleta_professor(request, pk):
+    professor = get_object_or_404(Professor, pk=pk)
+    professor.delete()
+    return redirect('professores')
+
 def professores(request):
     professores = Professor.objects.all()
+    lista_cursos = Curso.objects.all()
+    lista_unidades_curriculares = UnidadeCurricular.objects.all()
+
     if request.method == 'POST':
         form = FormProfessor(request.POST)
         if form.is_valid():
@@ -119,4 +136,16 @@ def professores(request):
     else:
         form = FormCurso()
     return render(request, 'timetable/professores.html',
-        {'professores': professores, 'form': form})
+        {'professores': professores, 'form': form, 'lista_cursos': lista_cursos,
+        'lista_unidades_curriculares': lista_unidades_curriculares})
+
+def editar_professor(request, pk):
+    professor = get_object_or_404(Professor, pk=pk)
+    if request.method == "POST":
+        form = FormProfessor(request.POST, instance=professor)
+        if form.is_valid():
+            curso = form.save()
+            return redirect('professores')
+    else:
+        form = FormProfessor(instance=professor)
+    return render(request, 'timetable/editar_professor.html', {'form': form})

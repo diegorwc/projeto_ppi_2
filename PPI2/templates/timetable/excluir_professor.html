@@ -1,0 +1,22 @@
+{% extends "timetable/base.html" %}
+
+{% block header %}
+  <span class="mdl-layout__title">Excluir Professor</span>
+{% endblock %}
+
+{% block conteudo %}
+  <div id="excluir_professor_card" class="mdl-card mdl-shadow--4dp">
+    <div class="mdl-card__title">
+      <h3>Você tem certeza que deseja excluir o professor {{ professor.nome }}?</h3>
+    </div>
+    <div class="mdl-card__supporting-text">
+      <h5>Professor: {{ professor.nome }}</h5>
+    </div>
+    <div class="mdl-card__actions">
+      <a href="{% url 'deleta_professor' pk=professor.pk%}" class="mdl-button
+      mdl-js-button mdl-js-ripple-effect mdl-button--raised" id="deleta_professor">
+        <i class="material-icons">delete</i> Excluir
+      </a>
+    </div>
+  </div>
+{% endblock %}
