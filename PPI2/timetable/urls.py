@@ -28,5 +28,7 @@ urlpatterns = [
     path('unidades_curriculares/<pk>/deleta_unidade_curricular_confirmacao',
         views.deleta_uc_confirmacao, name='deleta_uc_confirmacao'),
     path('unidades_curriculares/<pk>/deleta_unidade_curricular',
-        views.deleta_uc, name='deleta_uc')
+        views.deleta_uc, name='deleta_uc'),
+    path('unidades_curriculares/<pk>/edita_unidade_curricular',
+        views.editar_uc, name='editar_unidade_curricular'),
 ]

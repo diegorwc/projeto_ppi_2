@@ -150,6 +150,22 @@ def editar_professor(request, pk):
         form = FormProfessor(instance=professor)
     return render(request, 'timetable/editar_professor.html', {'form': form})
 
+def editar_uc(request, pk):
+    unidade_curricular = get_object_or_404(UnidadeCurricular, pk=pk)
+    if request.method == "POST":
+        form = FormUnidadeCurricular(request.POST, instance=unidade_curricular)
+        if form.is_valid():
+            unidade_curricular.dias_das_aulas = ''
+            for dia in request.POST.getlist('dias_das_aulas'):
+                unidade_curricular.dias_das_aulas += dia
+            unidade_curricular = form.save()
+            return redirect('unidades_curriculares')
+    else:
+        form = FormUnidadeCurricular(instance=unidade_curricular)
+    # pdb.set_trace()
+    return render(request, 'timetable/editar_uc.html', {'form': form,
+        'dias_das_aulas': unidade_curricular.dias_das_aulas})
+
 def deleta_uc_confirmacao(request, pk):
     unidade_curricular = get_object_or_404(UnidadeCurricular, pk=pk)
     return render(request, 'timetable/excluir_unidade_curricular.html',

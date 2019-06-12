@@ -1,0 +1,91 @@
+{% extends "timetable/base.html" %}
+
+{% block header %}
+  <span class="mdl-layout__title">Editar Unidade Curricular</span>
+{% endblock %}
+
+{% block conteudo %}
+<form method="post" id="editar_professor_form" class="mdl-shadow--4dp">
+  {% csrf_token %}
+  <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+    <label class="mdl-textfield__label"
+      for="id_{{ form.unidade_curricular.name }}">
+      Nome
+    </label>
+    {{ form.nome }}
+  </div>
+  <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+    <label class="mdl-textfield__label"
+      for="id_{{ form.unidade_curricular.professor }}">
+      Professor
+    </label>
+    {{ form.professor }}
+  </div>
+  <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+    <label class="mdl-textfield__label"
+      for="id_{{ form.unidade_curricular.carga_horaria }}">
+      Carga horária
+    </label>
+    {{ form.carga_horaria }}
+  </div>
+  <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+    <label class="mdl-textfield__label"
+      for="id_{{ form.unidade_curricular.sala }}">
+      Sala
+    </label>
+    {{ form.sala }}
+  </div>
+  <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+    <label class="mdl-textfield__label"
+      for="id_{{ form.curso.name }}">
+      Curso
+    </label>
+    {{ form.curso }}
+  </div>
+  <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+    <label class="mdl-textfield__label"
+      for="id_{{ form.dias_das_aulas.name }}">
+      Dias das aulas
+    </label>
+    {% for key, choice in form.dias_das_aulas.field.choices %}
+      <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect
+      mdl-textfield--floating-label" for="{{ key }}">
+        {% if key in dias_das_aulas %}
+          <input type="checkbox" id="{{ key }}"  class="mdl-checkbox__input"
+          name="dias_das_aulas" value="{{ key }}" checked>
+        {% else %}
+          <input type="checkbox" id="{{ key }}"  class="mdl-checkbox__input"
+          name="dias_das_aulas" value="{{ key }}">
+        {% endif %}
+        <span class="mdl-checkbox__label">{{ choice }}</span>
+      </label>
+    {% endfor %}
+  </div>
+  <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+    <label class="mdl-textfield__label"
+      for="id_{{ form.modulo.name }}">
+      Módulo
+    </label>
+    {{ form.modulo }}
+  </div>
+  <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+    <label class="mdl-textfield__label"
+      for="id_{{ form.horario_de_inicio.name }}">
+      Horário de início
+    </label>
+    {{ form.horario_de_inicio }}
+  </div>
+  <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+    <label class="mdl-textfield__label"
+      for="id_{{ form.horario_de_termino.name }}">
+      Horário de término
+    </label>
+    {{ form.horario_de_termino }}
+  </div>
+  <button class="mdl-button mdl-js-button mdl-button--raised
+  mdl-js-ripple-effect mdl-button--accent" id="modal_enviar"
+  type="submit">
+    Editar
+  </button>
+</form>
+{% endblock %}
