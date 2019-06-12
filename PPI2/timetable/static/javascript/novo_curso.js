@@ -32,4 +32,12 @@ $(function() {
   $("#novo_professor_button").click(function() {
     $("#novo_professor_modal").css("display", "block");
   })
+
+  $("#nova_unidade_curricular_button").click(function() {
+    $("#nova_unidade_curricular_modal").css("display", "block");
+  })
+
+  $("#nova_uc_fechar").click(function() {
+    $("#nova_unidade_curricular_modal").css("display", "none");
+  })
 });

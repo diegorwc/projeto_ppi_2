@@ -19,10 +19,14 @@ urlpatterns = [
     path('contato/', views.contato, name='contato'),
     path('contato/obg', views.obg, name='obg'),
     path('professores', views.professores, name='professores'),
-    path('professores/<pk>/deleta_professor_confirmacao', views.deleta_professor_confirmacao,
-        name='deleta_professor_confirmacao'),
+    path('professores/<pk>/deleta_professor_confirmacao',
+        views.deleta_professor_confirmacao,name='deleta_professor_confirmacao'),
     path('professores/<pk>/deleta_professor', views.deleta_professor,
         name='deleta_professor'),
     path('professores/<pk>/edita_professor', views.editar_professor,
         name='editar_professor'),
+    path('unidades_curriculares/<pk>/deleta_unidade_curricular_confirmacao',
+        views.deleta_uc_confirmacao, name='deleta_uc_confirmacao'),
+    path('unidades_curriculares/<pk>/deleta_unidade_curricular',
+        views.deleta_uc, name='deleta_uc')
 ]

@@ -343,24 +343,61 @@ a.mdl-button--accent:nth-child(1) {
   background-color: #009688;
 }
 
-#excluir_professor_card {
+#excluir_professor_card, #excluir_uc_card {
   width: 500px;
   text-align: center;
+  margin-bottom: 2em;
 }
 
 #excluir_professor_card > .mdl-card__supporting-text {
   margin: auto;
 }
 
-#excluir_professor_card > .mdl-card__actions {
+#excluir_uc_card > .mdl-card__supporting-text {
+  margin: auto;
+}
+
+#excluir_professor_card > .mdl-card__actions,
+#excluir_uc_card > .mdl-card__actions {
   padding: 16px;
 }
 
-#excluir_professor_card > .mdl-card__actions > a {
+#excluir_professor_card > .mdl-card__actions > a,
+#excluir_uc_card > .mdl-card__actions > a {
   background-color: #009688;
 }
 
-#excluir_professor_card > .mdl-card__actions > a:hover {
+#excluir_professor_card > .mdl-card__actions > a:hover,
+#excluir_uc_card > .mdl-card__actions > a:hover {
   color: black;
   background-color: #8bc34a;
+}
+
+#nova_uc_fechar {
+  position: absolute;
+  right: 400px;
+  top: 86px;
+  color: #8bc34a;
+  font-size: 35px;
+  font-weight: bold;
+}
+
+#nova_uc_fechar:hover {
+  cursor: pointer;
+  color: #009688;
+}
+
+#table_unidades_curriculares {
+  width: 90%;
+}
+
+#table_unidades_curriculares > thead > tr > th {
+  text-align: center;
+  background-color: #009688;
+  color: black;
+}
+
+#table_unidades_curriculares > tbody > tr > td {
+  height: 100px;
+  border: 1px solid rgba(0,0,0,.12);
 }

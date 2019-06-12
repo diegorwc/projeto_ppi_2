@@ -149,3 +149,13 @@ def editar_professor(request, pk):
     else:
         form = FormProfessor(instance=professor)
     return render(request, 'timetable/editar_professor.html', {'form': form})
+
+def deleta_uc_confirmacao(request, pk):
+    unidade_curricular = get_object_or_404(UnidadeCurricular, pk=pk)
+    return render(request, 'timetable/excluir_unidade_curricular.html',
+        {'unidade_curricular': unidade_curricular})
+
+def deleta_uc(request, pk):
+    unidade_curricular = get_object_or_404(UnidadeCurricular, pk=pk)
+    unidade_curricular.delete()
+    return redirect('unidades_curriculares')

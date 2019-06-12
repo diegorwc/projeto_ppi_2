@@ -1,0 +1,32 @@
+{% extends "timetable/base.html" %}
+
+{% block header %}
+  <span class="mdl-layout__title">Excluir Unidade Curricular</span>
+{% endblock %}
+
+{% block conteudo %}
+  <div id="excluir_uc_card" class="mdl-card mdl-shadow--4dp">
+    <div class="mdl-card__title">
+      <h3>Você tem certeza que deseja excluir a unidade curricular
+        {{ unidade_curricular.nome }}?
+      </h3>
+    </div>
+    <div class="mdl-card__supporting-text">
+      <h5>Unidade Curricular: {{ unidade_curricular.nome }}</h5>
+      <h5>Professor: {{ unidade_curricular.professor }}</h5>
+      <h5>Carga horária: {{ unidade_curricular.carga_horaria }}</h5>
+      <h5>Sala: {{ unidade_curricular.sala }}</h5>
+      <h5>Curso: {{ unidade_curricular.curso }}</h5>
+      <h5>Dias das aulas: {{ unidade_curricular.dias_das_aulas }}</h5>
+      <h5>Módulo: {{ unidade_curricular.modulo }}</h5>
+      <h5>Horário de início: {{ unidade_curricular.horario_de_inicio }}</h5>
+      <h5>Horário de término: {{ unidade_curricular.horario_de_termino }}</h5>
+    </div>
+    <div class="mdl-card__actions">
+      <a href="{% url 'deleta_uc' pk=unidade_curricular.pk %}" class="mdl-button
+      mdl-js-button mdl-js-ripple-effect mdl-button--raised" id="deleta_professor">
+        <i class="material-icons">delete</i> Excluir
+      </a>
+    </div>
+  </div>
+{% endblock %}
