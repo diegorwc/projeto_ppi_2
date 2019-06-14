@@ -1,10 +1,50 @@
 {% extends 'timetable/base.html' %}
 
 {% block conteudo %}
-  <h2>Cadastro de novo usuário</h2>
+  <div>
+    <h2>Cadastro de novo usuário</h2>
+  </div>
   <form method="post">
     {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Cadastrar</button>
+    <!-- TODO: adicionar ajax para verificação do nome de usuário -->
+    <!-- TODO: regex nos campos de senha -->
+    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+      <input class="mdl-textfield__input" type="text" id="id_username"
+      name="username" required>
+      <label class="mdl-textfield__label" for="id_username">Usuário</label>
+      <div class="mdl-tooltip mdl-tooltip--large mdl-tooltip--right"
+        data-mdl-for="id_username">
+        Obrigatório. 150 caracteres ou menos. Letras, números e @/./+/-/_ apenas.
+      </div>
+    </div>
+    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+      <input class="mdl-textfield__input" type="password" id="id_password1"
+        name="password1" required>
+      <label class="mdl-textfield__label" for="id_password1">Senha</label>
+      <div class="mdl-tooltip mdl-tooltip--large mdl-tooltip--right"
+        data-mdl-for="id_password1">
+        Sua senha não pode ser tão parecida com suas outras informações
+        pessoais.<br />
+        Sua senha precisa conter pelo menos 8 caracteres.<br />
+        Sua senha não pode ser uma senha habitualmente utilizada.<br />
+        Sua senha não pode ser inteiramente numérica.<br />
+      </div>
+    </div>
+    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+      <input class="mdl-textfield__input" type="password" id="id_password2"
+        name="password2" required>
+      <label class="mdl-textfield__label" for="id_password2">
+        Confirme a Senha
+      </label>
+      <div class="mdl-tooltip mdl-tooltip--large mdl-tooltip--right"
+        data-mdl-for="id_password2">
+        Informe a mesma senha informada anteriormente, para verificação.
+      </div>
+    </div>
+    <!-- {{ form.as_p }} -->
+    <button class="mdl-button mdl-js-button mdl-js-ripple-effect
+      mdl-button--raised" id="cadastrar_usuario_button" type="submit">
+      Cadastrar
+    </button>
   </form>
 {% endblock %}

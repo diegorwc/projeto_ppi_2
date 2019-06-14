@@ -412,3 +412,14 @@ body > div.mdl-layout__container > div > main > form > div:nth-child(7) > label.
   width: 50%;
   margin: 1em auto;
 }
+
+#cadastrar_usuario_button {
+  background-color: #8bc34a;
+  margin-left: 43em;
+  width: 22em;
+  margin-top: 1em;
+}
+
+body > div.mdl-layout__container > div > main > div > h2 {
+  margin-left: 11em;
+}
