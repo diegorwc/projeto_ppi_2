@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'questions_and_answers',
     'timetable',
     'crispy_forms',
+    'accounts',
 ]
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'

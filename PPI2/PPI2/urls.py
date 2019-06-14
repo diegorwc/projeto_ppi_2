@@ -19,6 +19,7 @@ from django.contrib.auth import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('accounts/', include('accounts.urls')),
     path('usuarios/', include('django.contrib.auth.urls')),
     path('perguntas/', include('questions_and_answers.urls')),
     path('horarios/', include('timetable.urls')),
@@ -27,5 +28,7 @@ urlpatterns = [
     path(
         'accounts/logout/', views.LogoutView.as_view(next_page='/'),
         name='logout'
-    )
+    ),
+    # path('accounts/registrar_usuario/', views.registrar_usuario.as_view(),
+    #     name="registrar_usuario"),
 ]

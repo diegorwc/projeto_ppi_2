@@ -31,4 +31,6 @@ urlpatterns = [
         views.deleta_uc, name='deleta_uc'),
     path('unidades_curriculares/<pk>/edita_unidade_curricular',
         views.editar_uc, name='editar_unidade_curricular'),
+    path('registrar_usuario/', views.registrar_usuario.as_view(),
+        name="registrar_usuario"),
 ]
