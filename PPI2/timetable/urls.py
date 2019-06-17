@@ -33,4 +33,5 @@ urlpatterns = [
         views.editar_uc, name='editar_unidade_curricular'),
     path('registrar_usuario/', views.registrar_usuario.as_view(),
         name="registrar_usuario"),
+    path('valida_usuario/', views.valida_usuario, name="valida_usuario"),
 ]

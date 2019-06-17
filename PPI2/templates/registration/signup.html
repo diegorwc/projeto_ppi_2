@@ -8,10 +8,13 @@
     {% csrf_token %}
     <!-- TODO: adicionar ajax para verificação do nome de usuário -->
     <!-- TODO: regex nos campos de senha -->
-    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+    <div id="username-wrapper" class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
       <input class="mdl-textfield__input" type="text" id="id_username"
       name="username" required>
       <label class="mdl-textfield__label" for="id_username">Usuário</label>
+      <span id="span-username" class="mdl-textfield__error">
+        Este nome de usuário é inválido ou já existe!
+      </span>
       <div class="mdl-tooltip mdl-tooltip--large mdl-tooltip--right"
         data-mdl-for="id_username">
         Obrigatório. 150 caracteres ou menos. Letras, números e @/./+/-/_ apenas.
@@ -46,5 +49,9 @@
       mdl-button--raised" id="cadastrar_usuario_button" type="submit">
       Cadastrar
     </button>
+    <div id="username-toast" class="mdl-js-snackbar mdl-snackbar">
+      <div class="mdl-snackbar__text"></div>
+      <button type="button" class="mdl-snackbar__action"></button>
+    </div>
   </form>
 {% endblock %}

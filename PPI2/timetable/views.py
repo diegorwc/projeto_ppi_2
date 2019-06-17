@@ -1,15 +1,13 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from .forms import FormCurso, FormUnidadeCurricular, FormProfessor
+from .forms import FormCurso, FormUnidadeCurricular, FormProfessor, ContatoForm
 from .models import Curso, Professor, UnidadeCurricular
-from django.http import HttpResponseRedirect, HttpResponse
+from django.http import HttpResponseRedirect, HttpResponse, JsonResponse
 from django.contrib.auth.decorators import login_required
 from django.core.mail import send_mail, BadHeaderError
 from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.models import User
 from django.urls import reverse_lazy
-from .forms import ContatoForm
-
 from django.views import generic
-
 import pdb
 
 # Create your views here.
@@ -185,3 +183,11 @@ class registrar_usuario(generic.CreateView):
     form_class = UserCreationForm
     success_url = reverse_lazy('accounts/login')
     template_name = 'registration/registrar_usuario.html'
+
+def valida_usuario(request):
+    usuario = request.GET.get('usuario', None)    
+    dados = {
+        'usuario': usuario,
+        'em_uso': User.objects.filter(username=usuario).exists()
+    }
+    return JsonResponse(dados)
