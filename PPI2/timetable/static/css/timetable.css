@@ -413,7 +413,7 @@ body > div.mdl-layout__container > div > main > form > div:nth-child(7) > label.
   margin: 1em auto;
 }
 
-#cadastrar_usuario_button {
+#cadastrar_usuario_button, #mudar_senha_button {
   background-color: #8bc34a;
   margin-left: 36em;
   width: 25em;
@@ -426,4 +426,28 @@ body > div.mdl-layout__container > div > main > div > h2 {
 
 .mdl-layout__content > div:nth-child(1) > h2:nth-child(1) {
   margin-left: 10em;
+}
+
+.alert {
+  padding: 20px;
+  color: white;
+  margin-bottom: 15px;
+  background-color: #8bc34a;
+  list-style: none;
+  margin: auto;
+  width: 50%;
+}
+
+.close-alert {
+  margin-left: 15px;
+  color: white;
+  font-weight: bold;
+  float: right;
+  cursor: pointer;
+  transition: 0.3s;
+  font-size: 22px;
+}
+
+.close-alert:hover {
+  color: black;
 }

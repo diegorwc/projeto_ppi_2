@@ -34,4 +34,5 @@ urlpatterns = [
     path('registrar_usuario/', views.registrar_usuario.as_view(),
         name="registrar_usuario"),
     path('valida_usuario/', views.valida_usuario, name="valida_usuario"),
+    path('reseta_senha/', views.password, name="reseta_senha"),
 ]

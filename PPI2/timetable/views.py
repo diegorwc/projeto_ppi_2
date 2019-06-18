@@ -1,13 +1,15 @@
-from django.shortcuts import render, redirect, get_object_or_404
 from .forms import FormCurso, FormUnidadeCurricular, FormProfessor, ContatoForm
 from .models import Curso, Professor, UnidadeCurricular
-from django.http import HttpResponseRedirect, HttpResponse, JsonResponse
-from django.contrib.auth.decorators import login_required
-from django.core.mail import send_mail, BadHeaderError
-from django.contrib.auth.forms import UserCreationForm
-from django.contrib.auth.models import User
 from django.urls import reverse_lazy
 from django.views import generic
+from django.http import HttpResponseRedirect, HttpResponse, JsonResponse
+from django.shortcuts import render, redirect, get_object_or_404
+from django.core.mail import send_mail, BadHeaderError
+from django.contrib import messages
+from django.contrib.auth import update_session_auth_hash
+from django.contrib.auth.models import User
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth.forms import UserCreationForm, PasswordChangeForm
 import pdb
 
 # Create your views here.
@@ -185,9 +187,27 @@ class registrar_usuario(generic.CreateView):
     template_name = 'registration/registrar_usuario.html'
 
 def valida_usuario(request):
-    usuario = request.GET.get('usuario', None)    
+    usuario = request.GET.get('usuario', None)
     dados = {
         'usuario': usuario,
         'em_uso': User.objects.filter(username=usuario).exists()
     }
     return JsonResponse(dados)
+
+@login_required
+def password(request):
+    if request.method == 'POST':
+        form = PasswordChangeForm(request.user, request.POST)
+        if form.is_valid():
+            form.save()
+            update_session_auth_hash(request, form.user)
+            messages.success(request, 'Senha atualizada com sucesso!',
+                extra_tags='alert')
+            return redirect('reseta_senha')
+        else:
+            messages.error(request, 'Corrija os erros', extra_tags='alert')
+    else:
+        form = PasswordChangeForm(request.user)
+    return render(
+        request, 'registration/change_password.html', {'form': form}
+    )

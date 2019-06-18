@@ -50,9 +50,13 @@
                   </i>
                 </button>
                 <ul class="mdl-menu mdl-js-menu mdl-menu--bottom-right mdl-js-ripple-effect"
-                for="user_actions">
-                  <a href="{% url 'logout' %}"><li class="mdl-menu__item">Sair</li></a>
-                  <li class="mdl-menu__item">Alterar senha</li>
+                  for="user_actions">
+                  <a href="{% url 'logout' %}">
+                    <li class="mdl-menu__item">Sair</li>
+                  </a>
+                  <a href="{% url 'reseta_senha' %}">
+                    <li class="mdl-menu__item">Alterar senha</li>
+                  </a>
                 </ul>
               </span>
             </span>
