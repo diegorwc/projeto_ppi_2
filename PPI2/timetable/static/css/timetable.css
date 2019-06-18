@@ -214,10 +214,6 @@ input.mdl-button {
   background-color: #8bc34a;
 }
 
-.reset-fields {
-  margin: 0 1em;
-}
-
 h5 {
   text-align: center;
   color: red;
@@ -450,4 +446,13 @@ body > div.mdl-layout__container > div > main > div > h2 {
 
 .close-alert:hover {
   color: black;
+}
+
+#div_id_email {
+  display: block;
+  margin: 2em;
+}
+
+#reset-fields {
+  margin: 0 1em;
 }
