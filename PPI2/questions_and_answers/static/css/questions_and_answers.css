@@ -80,7 +80,7 @@ div.mdl-layout__header-row > button:nth-child(3) {
     margin: auto;
   }
 
-  .new_question_modal {
+  .new_question_modal, .login_modal {
     display: none;
     position: fixed;
     z-index: 1;
@@ -92,6 +92,33 @@ div.mdl-layout__header-row > button:nth-child(3) {
     background-color: rgb(0, 0, 0);
     background-color: rgb(0, 0, 0, 0.4);
   }
+
+.login_modal {
+  top: 64px;
+}
+
+.login_modal_content {
+  background-color: #fefefe;
+  margin: 2em auto;
+  border: 1px solid #888;
+  width: 40%;
+  padding: 2em;
+  text-align: center;
+}
+
+.close {
+  position: absolute;
+  right: 385px;
+  top: 30px;
+  color: #8bc34a;
+  font-size: 35px;
+  font-weight: bold;
+}
+
+.close:hover {
+  color: black;
+  cursor: pointer;
+}
 
   .modal_content {
     background-color: #FEFEFE;

@@ -1,0 +1,23 @@
+{% extends 'questions_and_answers/base.html' %}
+
+<!-- Questions cards -->
+{% block question_cards %}
+  {% for user_question in users_questions %}
+  <div class="mdl-cell" onload="relativeFooter()">
+    <div class="question-card mdl-card mdl-shadow--4dp">
+      <div class="mdl-card__title">
+        <p class="mdl-card__title-text">{{ user_question.title }} - {{ user_question.author }}</p>
+      </div>
+      <p class="mdl-card__subtitle-text">
+        {{ user_question.text }}
+      </p>
+    </div>
+  </div>
+  {% endfor %}
+{% endblock %}
+
+<script type="text/javascript">
+  function relativeFooter() {
+    document.getgetElementsByClassName("mdl-mini-footer").style.position = "relative"
+  }
+</script>

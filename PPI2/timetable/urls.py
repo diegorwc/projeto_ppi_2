@@ -2,16 +2,18 @@ from django.urls import path, include
 from django.contrib import admin
 from . import views
 from django.views.generic import TemplateView
+from questions_and_answers import urls
 
 
 urlpatterns = [
-    path('', views.home, name='home'),
+    path('', views.cursos, name='home'),
     path('cursos/', views.cursos, name='cursos'),
     path(
         'unidades_curriculares', views.unidades_curriculares,
         name='unidades_curriculares'
     ),
     path('horarios/', include('django.contrib.auth.urls')),
+    path('perguntas/', include('questions_and_answers.urls')),
     path('cursos/<pk>/deleta_curso', views.deleta_curso, name='deleta_curso'),
     path('cursos/<pk>/deleta_curso_confirmacao', views.deleta_curso_confirmacao,
         name='deleta_curso_confirmacao'),
