@@ -21,4 +21,8 @@ $(function() {
   $("#new_question_button").click(function() {
     $("#new_question_modal").css("display", "block");
   })
+
+  $(".question-card").click(function( event ) {
+    alert(event.target.id);    
+  })
 })

@@ -20,15 +20,40 @@
       <header class="mdl-layout__header">
         <div class="mdl-layout__header-row">
           <span class="mdl-layout-title">Perguntas & Respostas</span>
+          <div class="mdl-layout-spacer"></div>
           <button id="new_question_button" class="mdl-button mdl-js-button
           mdl-js-ripple-effect mdl-button--raised">
             <i class="material-icons">add</i>
           </button>
-          <button id="login_button" class="mdl-button mdl-js-button
-            mdl-button--raised mdl-js-ripple-effect">
-            Login
-          </button>
-          <div class="mdl-layout-spacer"></div>
+          {% if user.is_anonymous %}
+            <button class="mdl-button mdl-js-button
+            mdl-js-ripple-effect mdl-button--raised"
+            onclick="document.getElementById('login_modal').style.display='block'">
+              Login
+            </button>
+          {% endif %}
+          {% if user.is_authenticated %}
+          <!-- user.is_staff -->
+            <span class="mdl-chip" id="user-chip">
+              <span class="mdl-chip__contact mdl-color--teal mdl-color-text--white">
+                {{ user.username.0 }}
+              </span>
+              <span class="mdl-chip__text">{{ user.username }}
+                <!-- <small>(<a href="{% url 'logout' %}">Sair</a>)
+                </small> -->
+                <button type="button" class="mdl-chip__action" id="user_actions">
+                  <i class="material-icons">
+                    arrow_drop_down
+                  </i>
+                </button>
+                <ul class="mdl-menu mdl-js-menu mdl-menu--bottom-right mdl-js-ripple-effect"
+                for="user_actions">
+                  <a href="{% url 'logout' %}"><li class="mdl-menu__item">Sair</li></a>
+                  <li class="mdl-menu__item">Alterar senha</li>
+                </ul>
+              </span>
+            </span>
+          {% endif %}
         </div>
       </header>
       <div class="mdl-layout__drawer">
@@ -38,6 +63,7 @@
           <a class="mdl-navigation__link" href="">Pedagógico</a>
           <a class="mdl-navigation__link" href="">Transparência</a>
           <a class="mdl-navigation__link" href="">PAEVS</a>
+          <a class="mdl-navigation__link" href="/horarios">Horários</a>
           <div class="mdl-layout--small-screen-only">
             <a class="mdl-navigation__link" href="">
               Login
@@ -45,16 +71,14 @@
           </div>
         </nav>
       </div>
-
-
     </div>
     <br />
     <br />
     <br />
     <br />
     <div class="mdl-grid">
-      {% block question_cards %}
-      {% endblock %}
+      {% block question_cards %}{% endblock %}
+      {% block details %}{% endblock %}
     </div>
 
     <footer class="mdl-mini-footer">
@@ -81,6 +105,10 @@
 
     <!--  New Question modal form -->
     <div id="new_question_modal" class="new_question_modal">
+      <span onclick="document.getElementById('new_question_modal').style.display='none'"
+      class="close" id="close_new_question">
+        &times;
+      </span>
       <div class="modal_content">
         <div class="modal_header">
           <h2 class="mdl-dialog__title">Nova pergunta</h2>
@@ -133,8 +161,8 @@
                  type="password" name="password" />
                </div>
                <br />
-               <button class="mdl-button mdl-js-button
-               mdl-js-ripple-effect mdl-button--raised login_button" type="submit">
+               <button id="login_button" class="mdl-button mdl-js-button
+               mdl-js-ripple-effect mdl-button--raised" type="submit">
                Login
                </button>
                <div>

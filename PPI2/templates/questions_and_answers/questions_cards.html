@@ -3,17 +3,41 @@
 <!-- Questions cards -->
 {% block question_cards %}
   {% for user_question in users_questions %}
-  <div class="mdl-cell" onload="relativeFooter()">
-    <div class="question-card mdl-card mdl-shadow--4dp">
-      <div class="mdl-card__title">
-        <p class="mdl-card__title-text">{{ user_question.title }} - {{ user_question.author }}</p>
+  <div class="mdl-cell">
+    <a href="{% url 'detalhes_pergunta' pk=user_question.pk %}">
+      <div class="question-card mdl-card mdl-shadow--4dp">
+        <div class="mdl-card__title">
+          {% if user_question.author == None %}
+            <p class="mdl-card__title-text">
+              {{ user_question.title }} - Anônimo
+            </p>
+          {% else %}
+            <p class="mdl-card__title-text">
+              {{ user_question.title }} - {{ user_question.author }}
+            </p>
+          {% endif %}
+        </div>
+        <p class="mdl-card__subtitle-text">
+          {{ user_question.text }}
+        </p>
       </div>
-      <p class="mdl-card__subtitle-text">
-        {{ user_question.text }}
-      </p>
-    </div>
+    </a>
   </div>
   {% endfor %}
+{% endblock %}
+
+{% block details %}
+<div id="detalhes_questao" class="new_question_modal">
+  <span onclick="document.getElementById('detalhes_questao').style.display='none'"
+  class="close" id="close_new_question">
+    &times;
+  </span>
+  <div class="modal_content">
+    <div class="modal_header">
+      <h2 class="mdl-dialog__title">-- Título da questão --</h2>
+    </div>
+    </div>
+  </div>
 {% endblock %}
 
 <script type="text/javascript">

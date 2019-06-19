@@ -3,6 +3,7 @@ from django.utils import timezone
 from .models import UserQuestion
 from .forms import UserQuestionForm
 from django.http import HttpResponseRedirect
+import pdb
 
 def home(request):
     if request.method == 'POST':
@@ -24,7 +25,11 @@ def questions_list(request):
         form = UserQuestionForm(request.POST)
         if form.is_valid():
             new_question = form.save(commit=False)
-            new_question.author = request.user
+            # pdb.set_trace()
+            if request.user.is_anonymous:
+                request.user = None
+            else:
+                new_question.author = request.user
             new_question.save()
             return redirect('questions_list')
     else:
@@ -34,3 +39,6 @@ def questions_list(request):
 
 def teste(request):
     return render(request, 'questions_and_answers/base.html', {})
+
+def detalhes_pergunta(request, pk):
+    return render(request, 'questions_and_answers/detalhes_pergunta.html')

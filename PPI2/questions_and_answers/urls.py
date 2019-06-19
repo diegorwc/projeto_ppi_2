@@ -5,5 +5,8 @@ urlpatterns = [
     # path('', views.questions_list, name='home'),
     path('', views.questions_list, name='questions_list'),
     # path('', views.questions_list, name='questions_list'),
-    path('teste', views.teste, name='teste')
+    path('teste', views.teste, name='teste'),
+    path('perguntas/<pk>/', views.detalhes_pergunta,
+        name="detalhes_pergunta"),
+
 ]

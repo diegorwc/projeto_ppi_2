@@ -31,17 +31,31 @@
   z-index: 0;
 }
 
+.mdl-card:hover {
+  cursor: pointer;
+}
+
 .mdl-layout-title {
   font-size: 1.1em;
 }
 
-div.mdl-layout__header-row > button:nth-child(2) {
-  left: 20%;
+#new_question_button {
+  margin-right: 2em;
 }
 
+#login_button {
+  margin-bottom: 1em;
+  min-width: 300px;
+  background-color: #8bc34a;
+}
+
+#close_new_question {
+  position: absolute;
+  right: 117px;
+  top: 66px;
+}
 div.mdl-layout__header-row > button:nth-child(2) {
-  /* margin-left: 30%; */
-  background-color: darkgreen;
+  background-color: #8bc34a;
 }
 
 div.mdl-layout__header-row > button:nth-child(3) {
@@ -50,25 +64,21 @@ div.mdl-layout__header-row > button:nth-child(3) {
 
 @media only screen and (min-width: 600px) {
 
-  div.mdl-layout__header-row > button:nth-child(2) {
-    left: 50%;
-  }
-
   div.mdl-layout__header-row > button:nth-child(3) {
     visibility: visible;
-    left: 55%;
+    /* left: 55%; */
   }
 }
 
 @media only screen and (min-width: 992px) {
 
-  div.mdl-layout__header-row > button:nth-child(2) {
-    left: 71%;
+  #user-chip {
+    background-color: #8bc34a;
   }
 
   div.mdl-layout__header-row > button:nth-child(3) {
     visibility: visible;
-    left: 73%;
+    /* left: 73%; */
   }
 
   .mdl-layout-title {
@@ -78,6 +88,10 @@ div.mdl-layout__header-row > button:nth-child(3) {
   #new_question_modal > div > form > div {
     display: block;
     margin: auto;
+  }
+
+  #new_question_button {
+    margin-right: 2em;
   }
 
   .new_question_modal, .login_modal {
