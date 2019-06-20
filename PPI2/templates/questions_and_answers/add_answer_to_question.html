@@ -1,0 +1,27 @@
+{% extends 'questions_and_answers/base.html' %}
+
+{% block question_cards %}
+  <div class="mdl-cell mdl-cell--12-col">
+    <h1>Responder pergunta</h1>
+    <form method="post">
+      {% csrf_token %}
+      <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+        <input type="text" name="author" required="" maxlength="200"
+        id="id_author_resposta" class="mdl-textfield__input">
+        <label class="mdl-textfield__label" for="id_author_resposta">Autor</label>
+      </div>
+      <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+        <textarea name="text" cols="40" required="" rows="10"
+        class="mdl-textfield__input" id="id_text_resposta"></textarea>
+        <label class="mdl-textfield__label" for="id_text_resposta">
+          Resposta
+        </label>
+      </div>
+      <!-- <br><br><br><br> -->
+      <!-- {{ form.as_p }} -->
+      <br>
+      <button class="mdl-button mdl-js-button mdl-js-ripple-effect
+        mdl-button--raised" type="submit" name="button">Responder</button>
+    </form>
+  </div>
+{% endblock %}

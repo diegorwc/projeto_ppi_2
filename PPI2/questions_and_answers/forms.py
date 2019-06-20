@@ -1,6 +1,6 @@
 from django import forms
 from django.forms import ModelForm, Textarea, TextInput
-from .models import UserQuestion
+from .models import UserQuestion, Resposta
 from django.utils.translation import gettext_lazy as _
 
 #https://docs.djangoproject.com/en/2.2/topics/forms/modelforms/#specifying-widgets-to-use-in-the-form-with-widgets
@@ -14,5 +14,16 @@ class UserQuestionForm(forms.ModelForm):
 
         widgets = {
             'title': TextInput(attrs={'class': 'mdl-textfield__input'}),
+            'text': Textarea(attrs={'class': 'mdl-textfield__input'})
+        }
+
+class UserQuestionAnswer(forms.ModelForm):
+
+    class Meta:
+        model = Resposta
+        fields = ('author', 'text')
+
+        widgets = {
+            'author': TextInput(attrs={'class': 'mdl-textfield__input'}),
             'text': Textarea(attrs={'class': 'mdl-textfield__input'})
         }

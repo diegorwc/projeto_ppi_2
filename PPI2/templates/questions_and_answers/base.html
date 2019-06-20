@@ -59,6 +59,9 @@
       <div class="mdl-layout__drawer">
         <span class="mdl-layout-title">Outras áreas</span>
         <nav class="mdl-navigation">
+          <a class="mdl-navigation__link" href="{% url 'questions_list' %}">
+            Início
+          </a>
           <a class="mdl-navigation__link" href="">Infraestrutura</a>
           <a class="mdl-navigation__link" href="">Pedagógico</a>
           <a class="mdl-navigation__link" href="">Transparência</a>
@@ -79,6 +82,7 @@
     <div class="mdl-grid">
       {% block question_cards %}{% endblock %}
       {% block details %}{% endblock %}
+      {% block answers %}{% endblock %}
     </div>
 
     <footer class="mdl-mini-footer">
