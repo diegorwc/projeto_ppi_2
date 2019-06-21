@@ -4,21 +4,19 @@
 <div class="mdl-cell mdl-cell--12-col">
   <div class="question-card-details mdl-card mdl-shadow--4dp">
     <div class="mdl-card__title mdl-card--border">
-      {% if user_question.author == None %}
-        <p class="mdl-card__title-text">
-          {{ user_question.title }} - Anônimo
-        </p>
-      {% else %}
-        <p class="mdl-card__title-text">
-          {{ user_question.title }} <br />
-        </p>
-      {% endif %}
+      <p class="mdl-card__title-text">
+        {{ user_question.title }} <br />
+      </p>
     </div>
-    <p id="mdl-card-question-text" class="mdl-card__subtitle-text">
+    <div id="mdl-card-question-text" class="mdl-card__subtitle-text">
       {{ user_question.text }}
-    </p>
+    </div>
     <div id="mdl-card-actions" class="mdl-card__actions mdl-card--border">
-      <p>{{ user_question.author }}</p>
+      {% if user_question.author == None %}
+        <p>Anônimo</p>
+      {% else %}
+        <p> {{ user_question.author }} </p>
+      {% endif %}
       <p>{{ user_question.created_date }}</p>
     </div>
   </div>
@@ -26,16 +24,26 @@
 {% endblock %}
 {% block answers %}
   {% for resposta in user_question.respostas.all %}
-    <div class="resposta">
+    <!-- <div class="resposta">
       <strong>{{ resposta.author }}</strong>
       <p>{{ resposta.text|linebreaks }}</p>
+    </div> -->
+    <div class="mdl-cell mdl-cell--12-col">
+      <div class="question-card-details mdl-card mdl-shadow--4dp">
+        <div class="mdl-card__title mdl-card--border">
+          <strong>{{ resposta.author }}</strong>
+        </div>
+        <div class="mdl-card__subtitle-text margin-left-2vh">
+          {{ resposta.text|linebreaks }}
+        </div>
+      </div>
     </div>
   {% empty %}
     <p id="sem_respostas">Sem respostas para esta pergunta ainda</p>
   {% endfor %}
   <a href="{% url 'add_answer_to_question' pk=user_question.pk %}"
     id="responder_perguta_button" class="mdl-button mdl-js-button
-    mdl-button--raised">
+    mdl-button--raised bg-light-green">
     Responder
   </a>
 {% endblock %}

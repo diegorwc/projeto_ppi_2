@@ -1,5 +1,5 @@
 .mdl-grid div {
-  text-align: center;
+  /* text-align: center; */
 }
 
 .mdl-grid {
@@ -28,8 +28,7 @@
 }
 
 #responder_perguta_button {
-  background-color: #8bc34a;
-  margin: auto;
+  margin: 2vh auto;
 }
 
 #sem_respostas {
@@ -64,6 +63,7 @@
   right: 120px;
   top: 85px;
 }
+
 div.mdl-layout__header-row > button:nth-child(2) {
   background-color: #8bc34a;
 }
@@ -81,6 +81,22 @@ div.mdl-layout__header-row > button:nth-child(3) {
   min-height: 35vh;
   text-align: left;
   margin-top: 2vh;
+  margin-left: 2vh;
+}
+
+.bg-light-green {
+  background-color: rgb(139, 195, 74);
+}
+
+.bg-light-green:hover {
+  background-color: rgb(0, 150, 136);
+}
+
+.text-align-left {
+  text-align: left;
+}
+
+.margin-left-2vh {
   margin-left: 2vh;
 }
 
