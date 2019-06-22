@@ -12,5 +12,8 @@ urlpatterns = [
         'pergunta/<pk>/resposta/', views.add_answer_to_question,
         name = 'add_answer_to_question'
     ),
+    path(
+        'pergunta/<pk>/deletar', views.deleta_questao, name = 'deleta_questao'
+    ),
 
 ]

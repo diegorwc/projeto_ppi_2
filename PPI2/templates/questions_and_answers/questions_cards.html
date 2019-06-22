@@ -4,42 +4,47 @@
 {% block question_cards %}
   {% for user_question in users_questions %}
   <div class="mdl-cell">
-    <a href="{% url 'detalhes_pergunta' pk=user_question.pk %}">
-      <div class="question-card mdl-card mdl-shadow--4dp">
-        <div class="mdl-card__title">
+    <div class="question-card mdl-card mdl-shadow--4dp">
+        <div class="mdl-card__title mdl-card--border">
           {% if user_question.author == None %}
-            <p class="mdl-card__title-text">
+            <div class="mdl-card__title-text">
               {{ user_question.title }} - Anônimo
-            </p>
+            </div>
           {% else %}
-            <p class="mdl-card__title-text">
+            <div class="mdl-card__title-text">
               {{ user_question.title }} - {{ user_question.author }}
-            </p>
+            </div>
           {% endif %}
         </div>
-        <p class="mdl-card__subtitle-text">
+        <div class="mdl-card__subtitle-text margin-left-2vh min-height-14-vh">
           {{ user_question.text }}
-        </p>
-      </div>
-    </a>
+        </div>
+        <div class="mdl-card__actions mdl-card--border text-align-right">
+          <button id="demo-menu-top-right-{{ user_question.pk}}"
+            class="mdl-button mdl-js-button mdl-button--icon">
+            <i class="material-icons">more_vert</i>
+          </button>
+          <ul class="mdl-menu mdl-menu--top-right mdl-js-menu
+            mdl-js-ripple-effect"
+            data-mdl-for="demo-menu-top-right-{{ user_question.pk}}">
+            <li class="mdl-menu__item">
+              <a class="no-text-decoration link-color-black"
+                href="{% url 'detalhes_pergunta' pk=user_question.pk %}">
+                Responder
+              </a>
+            </li>
+            <li class="mdl-menu__item">
+              <a class="no-text-decoration link-color-black"
+                href="{% url 'deleta_questao' pk=user_question.pk %}">
+                Deletar
+              </a>
+            </li>
+          </ul>
+        </div>
+    </div>
   </div>
   {% endfor %}
 {% endblock %}
-
-{% block details %}
-<div id="detalhes_questao" class="new_question_modal">
-  <span onclick="document.getElementById('detalhes_questao').style.display='none'"
-  class="close" id="close_new_question">
-    &times;
-  </span>
-  <div class="modal_content">
-    <div class="modal_header">
-      <h2 class="mdl-dialog__title">-- Título da questão --</h2>
-    </div>
-    </div>
-  </div>
-{% endblock %}
-
 <script type="text/javascript">
   function relativeFooter() {
     document.getgetElementsByClassName("mdl-mini-footer").style.position = "relative"

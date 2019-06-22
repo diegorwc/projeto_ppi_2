@@ -58,4 +58,12 @@ def add_answer_to_question(request, pk):
             return redirect('detalhes_pergunta', pk = user_question.pk)
     else:
         form = UserQuestionAnswer()
-    return render(request, 'questions_and_answers/add_answer_to_question.html', {'form': form})
+    return render(
+        request, 'questions_and_answers/add_answer_to_question.html',
+        {'form': form}
+    )
+
+def deleta_questao(request, pk):
+    user_question = get_object_or_404(UserQuestion, pk=pk)
+    user_question.delete()
+    return redirect('questions_list')
