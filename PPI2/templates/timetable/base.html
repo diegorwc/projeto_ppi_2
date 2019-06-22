@@ -28,7 +28,7 @@
         </div>
         <div class="mdl-layout__header-row">
           {% block header %}{% endblock %}
-          <div class="mdl-layout-spacer"></div>
+          <!-- <div class="mdl-layout-spacer"></div> -->
           {% if user.is_anonymous %}
             <button id="login_button" class="mdl-button mdl-js-button
             mdl-js-ripple-effect mdl-button--raised"
@@ -67,6 +67,11 @@
       <div class="mdl-layout__drawer">
         <span class="mdl-layout-title">Horários</span>
         <nav class="mdl-navigation">
+         <div class="mdl-layout--small-screen-only">
+           <a class="mdl-navigation__link" href="{% url 'login' %}">
+             Login
+           </a>
+         </div>
          <a href="{% url 'home' %}" class="mdl-navigation__link">Início</a>
          <a href="{% url 'cursos' %}" class="mdl-navigation__link">Cursos</a>
          <a href="{% url 'professores' %}" class="mdl-navigation__link">

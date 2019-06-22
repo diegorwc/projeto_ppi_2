@@ -1,6 +1,11 @@
 div > img {
-  width: 36px;
-  height: 36px;
+  width: 17vh;
+  height: 20vh;
+}
+
+.mdl-mini-footer__social-btn > img:nth-child(1) {
+  width: 8vh;
+  height: 8vh;
 }
 
 .mdl-grid {
@@ -9,6 +14,10 @@ div > img {
 
 .mdl-layout-title {
   background-color: rgb(139, 195, 74);
+}
+
+.mdl-layout__content {
+  min-height: 90vh;
 }
 
 .mdl-card__title-text {
@@ -67,11 +76,6 @@ div > img {
 
 #show_header {
   display: block;
-}
-
-.mdl-layout__header {
-  display: block;
-  background-color: black;
 }
 
 div.mdl-layout__header-row > button:nth-child(2) {
@@ -278,8 +282,8 @@ div.mdl-layout__header-row > button:nth-child(3) {
   }
 
   div > img {
-    width: 36px;
-    height: 36px;
+    width: 17vh;
+    height: 20vh;
   }
 
   .mdl-mini-footer__social-btn {
@@ -292,8 +296,8 @@ div.mdl-layout__header-row > button:nth-child(3) {
   }
 
   .mdl-logo > img {
-    width: 100px;
-    height: 128px;
+    width: 17vh;
+    height: 20vh;
   }
 
   .mdl-mini-footer__middle-section {

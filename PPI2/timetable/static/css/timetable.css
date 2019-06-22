@@ -68,6 +68,7 @@ div > img {
 
 .novo_curso_modal, .nova_unidade_curricular_modal, .login_modal,
 .excluir_curso_modal, .novo_professor_modal {
+  text-align: center;
   display: none;
   position: fixed;
   z-index: 3;
@@ -104,7 +105,7 @@ div > img {
 
 .mdl-data-table {
 	border-collapse: separate;
-	border-spacing: 1em 1em;
+	border-spacing: 0.5em 1em;
   background-color: white;
   margin: 1em auto;
 }
@@ -172,9 +173,9 @@ button#login_button.mdl-button.mdl-js-button.mdl-js-ripple-effect.mdl-button--ra
 }
 
 .close {
-  position: absolute;
-  right: 400px;
-  top: 43px;
+  /* position: absolute; */
+  /* right: 400px; */
+  /* top: 43px; */
   color: #8bc34a;
   font-size: 35px;
   font-weight: bold;
@@ -230,7 +231,7 @@ form button#modal_enviar.mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripp
 }
 
 #nova_unidade_curricular_button {
-  margin-left: 60em;
+  margin-right: 2vh;
 }
 
 #deleta_curso_button, #edita_curso_button {
@@ -247,14 +248,13 @@ a.mdl-button--accent:nth-child(1) {
 }
 
 .menu-acoes {
-  /* border: solid 1px black; */
-  margin: 1em auto;
-  /* height: 1em; */
+  margin: 4vh auto 2vh auto;
   width: 50%;
+  text-align: center;
 }
 
 #novo_curso_button {
-  left: 450px;
+  margin-right: 2vh;
 }
 
 .menu-acoes > a {
@@ -285,7 +285,7 @@ a.mdl-button--accent:nth-child(1) {
 }
 
 .mdl-card__title > h3 {
-  margin: auto;
+  text-align: center;
 }
 
 #deleta_curso {
@@ -293,9 +293,17 @@ a.mdl-button--accent:nth-child(1) {
 }
 
 #excluir_curso_card > .mdl-card__actions {
-  width: 90%;
   text-align: center;
   padding: 16px;
+}
+
+.close-container {
+  text-align: right;
+}
+
+#excluir_curso_card > .mdl-card__supporting-text {
+  box-sizing: border-box;
+  width: 100%;
 }
 
 #excluir_curso_card > .mdl-card__actions > a {
@@ -312,7 +320,7 @@ a.mdl-button--accent:nth-child(1) {
 }
 
 #novo_professor_button {
-  margin-left: 70%;
+  margin-right: 2vh;
 }
 
 #table-professores {
@@ -321,7 +329,7 @@ a.mdl-button--accent:nth-child(1) {
 
 #table-professores > thead > tr > th {
   text-align: center;
-  background-color: #009688;
+  background-color: #8fbc5b;
   color: black;
 }
 
@@ -331,12 +339,12 @@ a.mdl-button--accent:nth-child(1) {
 }
 
 #deleta_professor_button:hover {
-  background-color: #8bc34a;
+  background-color: #009688;
   color: black;
 }
 
 #deleta_professor_button {
-  background-color: #009688;
+  background-color: #8fbc5b;
 }
 
 #excluir_professor_card, #excluir_uc_card {
@@ -389,7 +397,7 @@ a.mdl-button--accent:nth-child(1) {
 
 #table_unidades_curriculares > thead > tr > th {
   text-align: center;
-  background-color: #009688;
+  background-color: #8bc34a;
   color: black;
 }
 
