@@ -140,15 +140,17 @@
 
     <!--  New Question modal form -->
     <div id="new_question_modal" class="new_question_modal">
-      <span onclick="document.getElementById('new_question_modal').style.display='none'"
-      class="close" id="close_new_question">
-        &times;
-      </span>
-      <div class="modal_content">
+      <div id="new_question_modal_content">
+        <div class="close-container">
+          <span onclick="document.getElementById('new_question_modal').style.display='none'"
+          class="close" id="close_new_question">
+            &times;
+          </span>
+        </div>
         <div class="modal_header">
           <h2 class="mdl-dialog__title">Nova pergunta</h2>
         </div>
-        <form method="post">
+        <form method="post" class="text-align-center">
           {% csrf_token %}
           <div class="mdl-textfield mdl-js-textfield">
             <label class="mdl-textfield__label" for="id_{{ form.title.name }}">
@@ -160,7 +162,9 @@
             <label class="mdl-textfield__label" for="id_{{ form.text.name }}">
               Faça sua pergunta
             </label>
-            {{ form.text }}
+            <textarea name="text" class="mdl-textfield__input"
+              rows="5" id="id_text" required="" cols="40"></textarea>
+            <!-- {{ form.text }} -->
           </div>
           <button class="mdl-button mdl-js-button mdl-button--raised
           mdl-js-ripple-effect mdl-button--accent" id="modal_enviar"
@@ -172,10 +176,12 @@
       </div>
 
       <div id="login_modal" class="login_modal">
-        <span onclick="document.getElementById('login_modal').style.display='none'"
-        class="close">
-          &times;
-        </span>
+        <div class="close-container">
+          <span onclick="document.getElementById('login_modal').style.display='none'"
+          class="close">
+            &times;
+          </span>
+        </div>
         <form class="login_form" method="post" action="{% url 'login' %}">
           {% csrf_token %}
              <div class="container login_modal_content">

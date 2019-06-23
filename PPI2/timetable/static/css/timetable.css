@@ -228,7 +228,8 @@ form button#modal_enviar.mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripp
 }
 
 .mdl-dialog__title {
-  font-size: 3vh;
+  font-size: 8vh;
+  padding: 1vh;
 }
 
 .modal_content > div:nth-child(1) > h2:nth-child(1) {
@@ -237,6 +238,10 @@ form button#modal_enviar.mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripp
 
 #nova_unidade_curricular_button {
   margin-right: 2vh;
+}
+
+#nova_unidade_curricular_button:hover {
+  background-color: #009688;
 }
 
 #deleta_curso_button, #edita_curso_button {
@@ -261,6 +266,11 @@ a.mdl-button--accent:nth-child(1) {
 #novo_curso_button {
   margin-right: 2vh;
 }
+
+#novo_curso_button:hover {
+  background-color: #009688;
+}
+
 
 .menu-acoes > a {
   background-color: #8bc34a;
@@ -327,6 +337,11 @@ a.mdl-button--accent:nth-child(1) {
 #novo_professor_button {
   margin-right: 2vh;
 }
+
+#novo_professor_button:hover {
+  background-color: #009688;
+}
+
 
 #table-professores {
   width: 90%;
@@ -470,8 +485,11 @@ body > div.mdl-layout__container > div > main > div > h2 {
   margin: 0 1em;
 }
 
+#change_password_form {
+  margin-top: 6vh;
+}
 
-/* media queries */
+/* media queries begin */
 
 @media only screen and (max-width: 600px) {
 
@@ -494,3 +512,5 @@ body > div.mdl-layout__container > div > main > div > h2 {
   }
 
 }
+
+/* media queries end */

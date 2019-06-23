@@ -20,6 +20,7 @@ $(function() {
 
   $("#new_question_button").click(function() {
     $("#new_question_modal").css("display", "block");
+    $("#new_question_modal_content").css("display", "block");
   })
 
   // $(".question-card").click(function( event ) {

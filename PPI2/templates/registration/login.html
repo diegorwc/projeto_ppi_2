@@ -1,5 +1,9 @@
 {% extends "timetable/base.html" %}
 
+{% block header %}
+  <div class="mdl-layout-spacer"></div>
+{% endblock %}
+
 {% block conteudo %}
    {% if form.errors %}
      <h5>Erro de usuário ou senha</h5>

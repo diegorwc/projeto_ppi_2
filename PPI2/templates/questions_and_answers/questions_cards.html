@@ -27,18 +27,14 @@
           <ul class="mdl-menu mdl-menu--top-right mdl-js-menu
             mdl-js-ripple-effect"
             data-mdl-for="demo-menu-top-right-{{ user_question.pk}}">
-            <li class="mdl-menu__item">
-              <a class="no-text-decoration link-color-black"
-                href="{% url 'detalhes_pergunta' pk=user_question.pk %}">
-                Responder
-              </a>
-            </li>
-            <li class="mdl-menu__item">
-              <a class="no-text-decoration link-color-black"
-                href="{% url 'deleta_questao' pk=user_question.pk %}">
-                Deletar
-              </a>
-            </li>
+            <a class="no-text-decoration link-color-black"
+              href="{% url 'detalhes_pergunta' pk=user_question.pk %}">
+              <li class="mdl-menu__item">Responder</li>
+            </a>
+            <a class="no-text-decoration link-color-black"
+              href="{% url 'deleta_questao' pk=user_question.pk %}">
+              <li class="mdl-menu__item">Deletar</li>
+            </a>
           </ul>
         </div>
     </div>

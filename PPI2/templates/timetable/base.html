@@ -112,13 +112,15 @@
       </footer>
     </div>
     <div id="login_modal" class="login_modal">
-      <span onclick="document.getElementById('login_modal').style.display='none'"
-      class="close">
-        &times;
-      </span>
       <form class="login_form" method="post" action="{% url 'login' %}">
         {% csrf_token %}
            <div class="container login_modal_content">
+             <div class="close-container">
+               <span onclick="document.getElementById('login_modal').style.display='none'"
+               class="close">
+                 &times;
+               </span>
+             </div>
              <div class="modal_header">
                <h2 class="mdl-dialog__title">Entrar</h2>
              </div>
