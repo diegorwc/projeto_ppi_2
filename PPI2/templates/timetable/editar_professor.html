@@ -8,7 +8,7 @@
 {% block conteudo %}
 <form method="post">
   {% csrf_token %}
-  <div class="mdl-textfield mdl-js-textfield">
+  <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
     <label class="mdl-textfield__label" for="id_{{ form.nome.name }}">
       Nome
     </label>

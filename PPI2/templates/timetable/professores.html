@@ -10,71 +10,75 @@
 {% endblock %}
 
 {% block conteudo %}
-  <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp"
-  id="table-professores">
-    <thead>
-      <tr>
-        <th class="mdl-data-table__cell--non-numeric">
-          Professor
-        </th>
-        <th>Unidades Curriculares</th>
-        <th>Cursos</th>
-        <th>Ações</th>
-      </tr>
-    </thead>
-    <tbody>
-      {% for professor in professores %}
-
+  <div class="table-wrapper">
+    <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp"
+    id="table-professores">
+      <thead>
         <tr>
-          <td class="mdl-data-table__cell--non-numeric">{{ professor.nome }}</td>
-          <td class="mdl-data-table__cell--non-numeric">
-            {% for uc in lista_unidades_curriculares %}
-            <!-- {{ uc.professor.pk }} -->
-              {% if uc.professor.pk == professor.pk %}
-                {{ uc.nome }} <br />
-              {% endif %}
-            {% endfor %}
-          </td>
-          <td class="mdl-data-table__cell--non-numeric">
-            {% for uc in lista_unidades_curriculares %}
-              {% if uc.professor.pk == professor.pk %}
-                {{ uc.curso }} <br />
-              {% endif %}
-            {% endfor %}
-          </td>
-          <td class="mdl-data-table__cell--non-numeric">
-            <a href="{% url 'deleta_professor_confirmacao' pk=professor.pk %}"
-            class="mdl-button mdl-js-button mdl-js-ripple-effect
-            mdl-button--raised "
-            id="deleta_professor_button">
-              <i class="material-icons">delete</i>
-            </a>
-            <a href="{% url 'editar_professor' pk=professor.pk %}"
-            class="mdl-button mdl-js-button mdl-js-ripple-effect
-            mdl-button--raised "
-            id="deleta_professor_button">
-              <i class="material-icons">edit</i>
-            </a>
-          </td>
+          <th class="mdl-data-table__cell--non-numeric">
+            Professor
+          </th>
+          <th>Unidades Curriculares</th>
+          <th>Cursos</th>
+          <th>Ações</th>
         </tr>
-      {% endfor %}
-    </tbody>
-  </table>
+      </thead>
+      <tbody>
+        {% for professor in professores %}
+          <tr>
+            <td class="mdl-data-table__cell--non-numeric">{{ professor.nome }}</td>
+            <td class="mdl-data-table__cell--non-numeric">
+              {% for uc in lista_unidades_curriculares %}
+              <!-- {{ uc.professor.pk }} -->
+                {% if uc.professor.pk == professor.pk %}
+                  {{ uc.nome }} <br />
+                {% endif %}
+              {% endfor %}
+            </td>
+            <td class="mdl-data-table__cell--non-numeric">
+              {% for uc in lista_unidades_curriculares %}
+                {% if uc.professor.pk == professor.pk %}
+                  {{ uc.curso }} <br />
+                {% endif %}
+              {% endfor %}
+            </td>
+            <td class="mdl-data-table__cell--non-numeric">
+              <a href="{% url 'deleta_professor_confirmacao' pk=professor.pk %}"
+              class="mdl-button mdl-js-button mdl-js-ripple-effect
+              mdl-button--raised "
+              id="deleta_professor_button">
+                <i class="material-icons">delete</i>
+              </a>
+              <a href="{% url 'editar_professor' pk=professor.pk %}"
+              class="mdl-button mdl-js-button mdl-js-ripple-effect
+              mdl-button--raised "
+              id="deleta_professor_button">
+                <i class="material-icons">edit</i>
+              </a>
+            </td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
   <!--  Novo professor modal form -->
   <!-- TODO: ajustar css do modal, icone de fechar esta fora da janela -->
   <!-- TODO: remove onclick do span e utilizar jquery -->
   <div id="novo_professor_modal" class="novo_professor_modal">
-    <span onclick="document.getElementById('login_modal').style.display='none'"
-    class="close">
-      &times;
-    </span>
     <div class="modal_content">
+      <div class="close-container">
+        <span onclick="document.getElementById('novo_professor_modal').style.display='none'"
+        class="close">
+          &times;
+        </span>
+      </div>
       <div class="modal_header">
         <h2 class="mdl-dialog__title">Cadastrar novo professor</h2>
       </div>
       <form method="post">
         {% csrf_token %}
-        <div class="mdl-textfield mdl-js-textfield">
+        <div class="mdl-textfield mdl-js-textfield
+          mdl-textfield--floating-label">
           <label class="mdl-textfield__label" for="id_{{ form.nome.name }}">
             Nome
           </label>

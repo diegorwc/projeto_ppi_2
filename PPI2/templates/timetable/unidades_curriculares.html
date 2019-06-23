@@ -11,47 +11,51 @@
 {% endblock %}
 
 {% block conteudo %}
-  <table id="table_unidades_curriculares" class="mdl-js-data-table
-    mdl-data-table">
-    <thead>
-      <tr>
-        <th class="mdl-data-table__cell--non-numeric">Unidade Curricular</th>
-        <th class="mdl-data-table__cell--non-numeric">Carga horária</th>
-        <th class="mdl-data-table__cell--non-numeric">Curso</th>
-        <th class="mdl-data-table__cell--non-numeric">Professor</th>
-        <th class="mdl-data-table__cell--non-numeric">Ações</th>
-      </tr>
-    </thead>
-    <tbody>
-      {% for unidade_curricular in lista_unidades_curriculares %}
-      <tr>
-        <td class="mdl-data-table__cell--non-numeric">{{ unidade_curricular.nome }}</td>
-        <td class="mdl-data-table__cell--non-numeric">{{ unidade_curricular.carga_horaria }}h</td>
-        <td class="mdl-data-table__cell--non-numeric">{{ unidade_curricular.curso }}</td>
-        <td class="mdl-data-table__cell--non-numeric">{{ unidade_curricular.professor }}</td>
-        <td class="mdl-data-table__cell--non-numeric">
-          <a href="{% url 'deleta_uc_confirmacao' pk=unidade_curricular.pk %}"
-            class="mdl-button--raised mdl-js-button mdl-js-ripple-effect
-              mdl-button" id="deleta_professor_button">
-              <i class="material-icons">delete</i>
-            </a>
-            <a class="mdl-button--raised  mdl-js-button mdl-js-ripple-effect
-              mdl-button" id="deleta_professor_button" href=
-              "{% url 'editar_unidade_curricular' pk=unidade_curricular.pk %}">
-              <i class="material-icons">edit</i>
-            </a>
-        </td>
-      </tr>
-      {% endfor %}
-    </tbody>
-  </table>
+  <div class="table-wrapper">
+    <table id="table_unidades_curriculares" class="mdl-js-data-table
+      mdl-data-table">
+      <thead>
+        <tr>
+          <th class="mdl-data-table__cell--non-numeric">Unidade Curricular</th>
+          <th class="mdl-data-table__cell--non-numeric">Carga horária</th>
+          <th class="mdl-data-table__cell--non-numeric">Curso</th>
+          <th class="mdl-data-table__cell--non-numeric">Professor</th>
+          <th class="mdl-data-table__cell--non-numeric">Ações</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for unidade_curricular in lista_unidades_curriculares %}
+        <tr>
+          <td class="mdl-data-table__cell--non-numeric">{{ unidade_curricular.nome }}</td>
+          <td class="mdl-data-table__cell--non-numeric">{{ unidade_curricular.carga_horaria }}h</td>
+          <td class="mdl-data-table__cell--non-numeric">{{ unidade_curricular.curso }}</td>
+          <td class="mdl-data-table__cell--non-numeric">{{ unidade_curricular.professor }}</td>
+          <td class="mdl-data-table__cell--non-numeric">
+            <a href="{% url 'deleta_uc_confirmacao' pk=unidade_curricular.pk %}"
+              class="mdl-button--raised mdl-js-button mdl-js-ripple-effect
+                mdl-button" id="deleta_professor_button">
+                <i class="material-icons">delete</i>
+              </a>
+              <a class="mdl-button--raised  mdl-js-button mdl-js-ripple-effect
+                mdl-button" id="deleta_professor_button" href=
+                "{% url 'editar_unidade_curricular' pk=unidade_curricular.pk %}">
+                <i class="material-icons">edit</i>
+              </a>
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
 {% endblock %}
 
 {% block form %}
-<!--  Novo curso modal form -->
+<!--  Nova unidade curricular form -->
 <div id="nova_unidade_curricular_modal" class="nova_unidade_curricular_modal">
-  <span id="nova_uc_fechar">&times</span>
   <div class="modal_content">
+    <div class="close-container">
+      <span id="nova_uc_fechar" class="close">&times</span>
+    </div>
     <div class="modal_header">
       <h2 class="mdl-dialog__title">Cadastrar nova unidade curricular</h2>
     </div>

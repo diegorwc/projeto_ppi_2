@@ -31,34 +31,35 @@
 </form> -->
 <form method="post">
   {% csrf_token %}
-  <div class="mdl-textfield mdl-js-textfield">
+  <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
     <label class="mdl-textfield__label" for="id_{{ form.nome.name }}">
       Nome
     </label>
     {{ form.nome }}
   </div>
-  <div class="mdl-textfield mdl-js-textfield">
+  <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
     <label class="mdl-textfield__label" for="id_{{ form.coordenador.name }}">
       Coordenador
     </label>
     <br />
     {{ form.coordenador }}
   </div>
-  <div class="mdl-textfield mdl-js-textfield">
+  <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
     <label class="mdl-textfield__label"
     for="id_{{ form.quantidade_de_modulos.name }}">
       Quantidade de módulos
     </label>
     {{ form.quantidade_de_modulos }}
   </div>
-  <div class="mdl-textfield mdl-js-textfield getmdl-select">
+  <div class="mdl-textfield mdl-js-textfield getmdl-select
+    mdl-textfield--floating-label">
     <label class="mdl-textfield__label" for="id_{{ form.turno.name }}">
     </label>
     {{ form.turno }}
   </div>
   <button class="mdl-button mdl-js-button mdl-button--raised
-  mdl-js-ripple-effect mdl-button--accent" id="modal_enviar"
-  type="submit">
+    mdl-textfield--floating-label mdl-js-ripple-effect mdl-button--accent"
+    id="modal_enviar" type="submit">
     Editar
   </button>
 </form>
