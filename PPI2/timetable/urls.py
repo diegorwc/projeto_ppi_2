@@ -1,6 +1,7 @@
 from django.urls import path, include
 from django.contrib import admin
 from . import views
+from . import models
 from django.views.generic import TemplateView
 from questions_and_answers import urls
 
@@ -33,7 +34,7 @@ urlpatterns = [
         views.deleta_uc, name='deleta_uc'),
     path('unidades_curriculares/<pk>/edita_unidade_curricular',
         views.editar_uc, name='editar_unidade_curricular'),
-    path('registrar_usuario/', views.registrar_usuario.as_view(),
+    path('registrar_usuario/', models.registrar_usuario.as_view(),
         name="registrar_usuario"),
     path('valida_usuario/', views.valida_usuario, name="valida_usuario"),
     path('reseta_senha/', views.password, name="reseta_senha"),

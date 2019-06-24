@@ -37,9 +37,6 @@ def questions_list(request):
     return render(request, 'questions_and_answers/questions_cards.html',
     {'form': form, 'users_questions': users_questions})
 
-def teste(request):
-    return render(request, 'questions_and_answers/base.html', {})
-
 def detalhes_pergunta(request, pk):
     user_question = get_object_or_404(UserQuestion, pk=pk)
     return render(

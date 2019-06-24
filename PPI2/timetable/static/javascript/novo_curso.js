@@ -58,4 +58,8 @@ $(function() {
     $(".alert").css("display", "none");
   })
 
+  $(".close-alert").click(function() {
+    $(".alert-danger").css("display", "none");
+  })
+
 });

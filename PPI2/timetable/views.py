@@ -100,9 +100,14 @@ def contato(request):
 
             try:
                 send_mail(assunto, msg, emissor, ['wille.diegoricardo@gmail.com'])
+                messages.success(request, 'Mensagem enviada!',
+                    extra_tags='alert')
+                return redirect('contato')
             except BadHeaderError:
+                messages.error(request, 'Erro ao enviar mensagem.',
+                extra_tags='alert-danger')
                 return HttpResponse("Erro =/")
-            return redirect('obg')
+            # return redirect('obg')
     return render(request, 'timetable/contato.html', {'form': email_form})
 
 def obg(request):
@@ -111,10 +116,6 @@ def obg(request):
 def deleta_curso_confirmacao(request, pk):
     curso = get_object_or_404(Curso, pk=pk)
     return render(request, 'timetable/excluir_curso.html', {'curso': curso})
-
-# def deleta_professor_confirmacao(request, pk):
-    # professor = get_object_or_404(Professor, pk=pk)
-    # return HttpResponse("<h2>Else error</h2>")
 
 def deleta_professor_confirmacao(request, pk):
     professor = get_object_or_404(Professor, pk=pk)
@@ -181,10 +182,10 @@ def deleta_uc(request, pk):
     unidade_curricular.delete()
     return redirect('unidades_curriculares')
 
-class registrar_usuario(generic.CreateView):
-    form_class = UserCreationForm
-    success_url = reverse_lazy('accounts/login')
-    template_name = 'registration/registrar_usuario.html'
+# class registrar_usuario(generic.CreateView):
+#     form_class = UserCreationForm
+#     success_url = reverse_lazy('accounts/login')
+#     template_name = 'registration/registrar_usuario.html'
 
 def valida_usuario(request):
     usuario = request.GET.get('usuario', None)

@@ -462,6 +462,22 @@ body > div.mdl-layout__container > div > main > div > h2 {
   width: 50%;
 }
 
+.alert-danger {
+  padding: 20px;
+  color: white;
+  margin-bottom: 15px;
+  background-color: #f44235;
+  list-style: none;
+  margin: 1% auto;
+  width: 50%;
+}
+
+#contato_button {
+  margin: 2% auto 2% auto;
+  display: block;
+  width: 22%;
+}
+
 .close-alert {
   margin-left: 15px;
   color: white;

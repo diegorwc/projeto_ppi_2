@@ -1,7 +1,66 @@
 {% extends 'timetable/base.html' %}
 
-{% load crispy_forms_tags %}
+<!-- {% load crispy_forms_tags %} -->
+
+{% block header %}
+  <span class="mdl-layout__title">Contato</span>
+  <div class="mdl-layout-spacer"></div>
+{% endblock %}
 
 {% block conteudo %}
-    {% crispy form %}
+  {% if messages %}
+    <ul class="messages">
+      {% for message in messages %}
+        <li class="{{ message.tags }}">
+          {{ message }}<span class="close-alert">&times;</span>
+        </li>
+      {% endfor %}
+    </ul>
+  {% endif %}
+  {% if form.errors %}
+    {% for field in form %}
+      {% for error in field.errors %}
+        <div class="alert-danger">
+          <strong>{{ error|escape }}</strong>
+          <span class="close-alert">&times;</span>
+        </div>
+      {% endfor %}
+      {% for error in form.non_field_errors %}
+        <div class="alert-danger">
+          <strong> {{ error|escape }}</strong>
+          <span class="close-alert">&times;</span>
+        </div>
+      {% endfor %}
+    {% endfor %}
+  {% endif %}
+  <form method="post">
+    {% csrf_token %}
+    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+      <label class="mdl-textfield__label" for="id_emissor">
+        Remetente
+      </label>
+      <input class="mdl-textfield__input" type="email" name="emissor"
+        id="id_emissor" required>
+    </div>
+    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+      <label class="mdl-textfield__label" for="id_assunto">
+        Assunto
+      </label>
+      <input class="mdl-textfield__input" type="text" name="assunto"
+        id="id_assunto" required>
+    </div>
+    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+      <label class="mdl-textfield__label" for="id_msg">
+        Mensagem
+      </label>
+      <textarea class="mdl-textfield__input" type="text" name="msg"
+        id="id_msg" rows="10" cols="40" required></textarea>
+    </div>
+    <button type="submit" name="submit" class="mdl-button mdl-js-button
+      mdl-button--raised mdl-js-ripple-effect mdl-button--accent"
+      id="contato_button">
+      Enviar
+    </button>
+  </form>
+  <!-- {% crispy form  %} -->
 {% endblock %}

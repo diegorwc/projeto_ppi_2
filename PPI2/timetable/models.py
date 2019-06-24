@@ -1,5 +1,7 @@
 from django.db import models
-
+from django.views import generic
+from django.contrib.auth.forms import UserCreationForm
+from django.urls import reverse_lazy
 #https://docs.djangoproject.com/en/2.2/ref/models/fields/#model-field-types
 
 class Professor(models.Model):
@@ -69,3 +71,8 @@ class UnidadeCurricular(models.Model):
 
     def horarioInicioToString(self):
         return str(self.horario_de_inicio)
+
+class registrar_usuario(generic.CreateView):
+    form_class = UserCreationForm
+    success_url = reverse_lazy('accounts/login')
+    template_name = 'registration/registrar_usuario.html'
