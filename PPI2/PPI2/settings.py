@@ -143,7 +143,7 @@ LOGIN_REDIRECT_URL = '/horarios'
 EMAIL_FILE_PATH = os.path.join(BASE_DIR, "sent_emails")
 
 EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER = 'diego.r07@aluno.ifsc.edu.br'
-EMAIL_HOST_PASSWORD = 'gfdemufkxppsmsuj'
+EMAIL_HOST_USER = ''
+EMAIL_HOST_PASSWORD = ''
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
