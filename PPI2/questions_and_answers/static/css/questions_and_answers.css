@@ -4,8 +4,9 @@ div > img {
 }
 
 .mdl-mini-footer__social-btn > img:nth-child(1) {
-  width: 8vh;
-  height: 8vh;
+  width: 5vh;
+  height: 5vh;
+  display: inline-block;
 }
 
 .mdl-grid {
@@ -336,6 +337,7 @@ div.mdl-layout__header-row > button:nth-child(2) {
   .mdl-mini-footer__social-btn {
     background-color: #8bc34a;
     margin: auto;
+    display: inline-block;
   }
 
   .mdl-mini-footer__social-btn:hover {

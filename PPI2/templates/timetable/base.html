@@ -101,12 +101,24 @@
           CEP 89466-312
         </div>
         <div class="mdl-mini-footer__right-section">
-          <a class="mdl-navigation__link"
+          <div class="mdl-tooltip mdl-tooltip--large" data-mdl-for="yt">
+            IFSC TV
+          </div>
+          <a class="mdl-navigation__link" id="yt"
           href="https://www.youtube.com/user/ifsccomunicacao" target="_blank">
             <div class="mdl-mini-footer__social-btn">
               <img src="{% static "images/youtube_social_squircle_red.png" %}"
               alt="Youtube logo. Link para IFSC TV">
             </div>
+          </a>
+          <div class="mdl-tooltip mdl-tooltip--large" data-mdl-for="contato">
+            Entre em contato
+          </div>
+          <a class="mdl-navigation__link" href="{% url 'contato' %}"
+            target="_blank" id="contato">
+            <i class="material-icons">
+              contact_mail
+            </i>
           </a>
         </div>
       </footer>
